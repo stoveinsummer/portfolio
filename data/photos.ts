@@ -1,6 +1,6 @@
 import type { PhotoItem } from "@/types/content";
 
-export const photos: PhotoItem[] = [
+const rawPhotos: Omit<PhotoItem, "project">[] = [
   { id: "seoul-sunset-traffic", title: "퇴근길의 노을", imageUrl: "../photos/web/seoul-sunset-traffic.webp", takenAt: "2025-03-28", location: "Seoul", description: "도시의 불빛이 켜지기 시작한 순간, 차선 끝에 남은 주황빛을 기록했다.", category: "거리", tags: ["노을", "도시", "퇴근길"], orientation: "portrait" },
   { id: "moon-over-power-lines", title: "전선 사이의 달", imageUrl: "../photos/web/moon-over-power-lines.webp", takenAt: "2025-05-07", location: "Seoul", description: "복잡하게 겹친 전선과 작게 떠 있는 달의 대비.", category: "디테일", tags: ["달", "전선", "푸른시간"], orientation: "portrait" },
   { id: "summer-clouds-and-wires", title: "여름 구름", imageUrl: "../photos/web/summer-clouds-and-wires.webp", takenAt: "2025-07-27", location: "Seoul", description: "전선이 프레임을 가르는 한낮의 큰 구름.", category: "자연", tags: ["구름", "여름", "하늘"], orientation: "portrait" },
@@ -14,3 +14,20 @@ export const photos: PhotoItem[] = [
   { id: "traditional-eaves-monochrome", title: "처마의 대칭 — 흑백", imageUrl: "../photos/web/traditional-eaves-monochrome.webp", takenAt: "2025-10-18", location: "Seoul", description: "단청의 색을 덜어내고 구조와 반복에 집중했다.", category: "디테일", tags: ["처마", "대칭", "흑백"], orientation: "portrait" },
   { id: "traditional-eaves-color", title: "처마의 대칭 — 컬러", imageUrl: "../photos/web/traditional-eaves-color.webp", takenAt: "2025-10-18", location: "Seoul", description: "초록 단청과 목재의 선이 중앙에서 만나는 장면.", category: "건축", tags: ["단청", "대칭", "전통건축"], orientation: "portrait" },
 ];
+
+const projects: Record<string, string> = {
+  "seoul-sunset-traffic": "City after work",
+  "seoul-evening-traffic": "City after work",
+  "moon-over-power-lines": "Looking up",
+  "summer-clouds-and-wires": "Looking up",
+  "sun-rays-after-storm": "Looking up",
+  "autumn-ginkgo-canopy": "Seasons in Seoul",
+  "snow-covered-trees-at-night": "Seasons in Seoul",
+  "silver-grass-under-sky": "Seasons in Seoul",
+  "red-brick-and-reflection": "Lines and surfaces",
+  "colorful-glass-dome": "Lines and surfaces",
+  "traditional-eaves-monochrome": "Lines and surfaces",
+  "traditional-eaves-color": "Lines and surfaces",
+};
+
+export const photos: PhotoItem[] = rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id] }));

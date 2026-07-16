@@ -6,6 +6,7 @@ export interface PhotoItem {
   location: string;
   description: string;
   category: "거리" | "자연" | "건축" | "디테일";
+  project: string;
   tags: string[];
   orientation: "landscape" | "portrait";
 }
