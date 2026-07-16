@@ -39,7 +39,8 @@ export default function Home() {
           YOUR NAME<span className="wordmark-dot">.</span>
         </a>
         <nav aria-label="주요 메뉴">
-          <a href="#work">Work</a>
+          <a href="./gallery/">Gallery</a>
+          <a href="#work">Projects</a>
           <a href="#notes">Notes</a>
           <a href="#about">About</a>
           <a href="https://github.com/" target="_blank" rel="noreferrer">GitHub ↗</a>
