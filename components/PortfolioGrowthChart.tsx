@@ -6,11 +6,16 @@ export function PortfolioGrowthChart({ records }: { records: InvestmentRecord[] 
   const min = Math.min(...values);
   const max = Math.max(...values);
   const range = Math.max(max - min, 1);
-  const polygon = points.map((point, index) => {
+  const coordinates = points.map((point, index) => {
     const x = points.length === 1 ? 50 : (index / (points.length - 1)) * 100;
     const y = 88 - ((point.growthIndex - min) / range) * 64;
-    return `${x}% ${y}%`;
-  }).join(", ");
+    return { x, y };
+  });
+  const lineThickness = 0.8;
+  const polygon = [
+    ...coordinates.map(({ x, y }) => `${x}% ${y - lineThickness}%`),
+    ...[...coordinates].reverse().map(({ x, y }) => `${x}% ${y + lineThickness}%`),
+  ].join(", ");
   const start = points[0]?.growthIndex ?? 100;
   const latest = points.at(-1)?.growthIndex ?? start;
   const change = latest - start;
