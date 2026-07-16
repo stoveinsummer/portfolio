@@ -7,6 +7,8 @@ export interface PhotoItem {
   description: string;
   category: "거리" | "자연" | "건축" | "디테일";
   project: string;
+  theme: "도시의 시간" | "하늘 관찰" | "계절의 기록" | "선과 구조";
+  color: "따뜻한 색" | "푸른색" | "초록색" | "노란색" | "보라색" | "무채색" | "다채로운 색";
   tags: string[];
   orientation: "landscape" | "portrait";
 }

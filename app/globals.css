@@ -53,7 +53,11 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .gallery-intro h1 { margin: 2vw 0 0; font-size: clamp(5rem, 13vw, 12rem); line-height: .77; letter-spacing: -.08em; font-weight: 520; }
 .gallery-intro h1 i { font-family: Georgia, serif; font-weight: 400; }
 .gallery-intro > p:last-child { max-width: 520px; font-size: 1.2rem; line-height: 1.6; }
-.gallery-filters { position: sticky; top: 68px; z-index: 10; display: flex; gap: .8rem; padding: 1.2rem 3vw; background: rgba(242,240,233,.92); backdrop-filter: blur(14px); border-block: 1px solid var(--line); overflow-x: auto; }
+.gallery-filters { position: sticky; top: 68px; z-index: 10; display: grid; grid-template-columns: 1fr auto; gap: .65rem 1.5rem; padding: 1rem 3vw; background: rgba(242,240,233,.94); backdrop-filter: blur(14px); border-block: 1px solid var(--line); }
+.filter-row { display: flex; align-items: center; gap: .55rem; overflow-x: auto; scrollbar-width: none; }
+.filter-row strong, .filter-count { flex: 0 0 auto; font: 600 .65rem "Courier New", monospace; text-transform: uppercase; }
+.filter-row strong { width: 42px; color: #8b4f33; }
+.filter-count { grid-column: 2; grid-row: 1 / 3; align-self: center; opacity: .58; }
 .gallery-filters button { border: 1px solid var(--line); border-radius: 99px; background: transparent; padding: .65rem 1.15rem; color: inherit; font: 600 .68rem "Courier New", monospace; text-transform: uppercase; cursor: pointer; }
 .gallery-filters button.active, .gallery-filters button:hover { background: var(--ink); color: var(--paper); }
 .photo-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6vw 1.2vw; padding: 5vw 1.2vw 12vw; align-items: start; }
@@ -81,6 +85,8 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .gallery-intro { grid-template-columns: 1fr; padding-top: 8vh; } .gallery-intro .eyebrow { grid-column: 1; } .gallery-intro h1 { font-size: 22vw; }
   .photo-grid { display: block; padding-inline: 3vw; } .photo-card, .photo-card:nth-child(4n+2), .photo-card:nth-child(4n+3) { display: block; width: 100%; margin: 0 0 4rem; }
   .lightbox { grid-template-columns: 44px 1fr 44px; padding: 1rem; } .lightbox img { max-height: 75vh; }
+  .gallery-filters { top: 82px; grid-template-columns: 1fr; padding-block: .8rem; }
+  .filter-count { grid-column: 1; grid-row: auto; padding-left: 48px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
 

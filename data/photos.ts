@@ -1,6 +1,6 @@
 import type { PhotoItem } from "@/types/content";
 
-const rawPhotos: Omit<PhotoItem, "project">[] = [
+const rawPhotos: Omit<PhotoItem, "project" | "theme" | "color">[] = [
   { id: "seoul-sunset-traffic", title: "퇴근길의 노을", imageUrl: "../photos/web/seoul-sunset-traffic.webp", takenAt: "2025-03-28", location: "Seoul", description: "도시의 불빛이 켜지기 시작한 순간, 차선 끝에 남은 주황빛을 기록했다.", category: "거리", tags: ["노을", "도시", "퇴근길"], orientation: "portrait" },
   { id: "moon-over-power-lines", title: "전선 사이의 달", imageUrl: "../photos/web/moon-over-power-lines.webp", takenAt: "2025-05-07", location: "Seoul", description: "복잡하게 겹친 전선과 작게 떠 있는 달의 대비.", category: "디테일", tags: ["달", "전선", "푸른시간"], orientation: "portrait" },
   { id: "summer-clouds-and-wires", title: "여름 구름", imageUrl: "../photos/web/summer-clouds-and-wires.webp", takenAt: "2025-07-27", location: "Seoul", description: "전선이 프레임을 가르는 한낮의 큰 구름.", category: "자연", tags: ["구름", "여름", "하늘"], orientation: "portrait" },
@@ -30,4 +30,18 @@ const projects: Record<string, string> = {
   "traditional-eaves-color": "Lines and surfaces",
 };
 
-export const photos: PhotoItem[] = rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id] }));
+const themes: Record<string, PhotoItem["theme"]> = {
+  "seoul-sunset-traffic": "도시의 시간", "seoul-evening-traffic": "도시의 시간",
+  "moon-over-power-lines": "하늘 관찰", "summer-clouds-and-wires": "하늘 관찰", "sun-rays-after-storm": "하늘 관찰",
+  "autumn-ginkgo-canopy": "계절의 기록", "snow-covered-trees-at-night": "계절의 기록", "silver-grass-under-sky": "계절의 기록",
+  "red-brick-and-reflection": "선과 구조", "colorful-glass-dome": "선과 구조", "traditional-eaves-monochrome": "선과 구조", "traditional-eaves-color": "선과 구조",
+};
+
+const colors: Record<string, PhotoItem["color"]> = {
+  "seoul-sunset-traffic": "따뜻한 색", "moon-over-power-lines": "푸른색", "summer-clouds-and-wires": "푸른색",
+  "sun-rays-after-storm": "푸른색", "autumn-ginkgo-canopy": "노란색", "snow-covered-trees-at-night": "무채색",
+  "seoul-evening-traffic": "보라색", "red-brick-and-reflection": "따뜻한 색", "colorful-glass-dome": "다채로운 색",
+  "silver-grass-under-sky": "초록색", "traditional-eaves-monochrome": "무채색", "traditional-eaves-color": "초록색",
+};
+
+export const photos: PhotoItem[] = rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id], theme: themes[photo.id], color: colors[photo.id] }));
