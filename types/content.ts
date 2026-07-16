@@ -29,6 +29,10 @@ export interface InvestmentRecord {
   portfolio: PortfolioItem[];
   decisions: string[];
   review: string;
+  marketNews?: {
+    korea: string;
+    us: string;
+  };
 }
 
 export interface JournalEntry {

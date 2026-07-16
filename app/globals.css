@@ -123,6 +123,12 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .photo-meta a { align-self: end; border-bottom: 1px solid; }
 .notice { padding: 1rem 1.2rem; background: #e7e3d8; border-left: 3px solid #8b4f33; font-size: .9rem; line-height: 1.5; }
 .feature-record { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8vw; padding: 7vw 0; align-items: center; }
+.invest-method { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; padding: 7vw 0; border-bottom: 1px solid var(--line); }
+.invest-method h2 { margin: 1rem 0 0; font: italic 400 clamp(3rem, 5.5vw, 5.8rem)/.92 Georgia, serif; letter-spacing: -.055em; }
+.invest-method-copy > p { max-width: 580px; margin: 0 0 2rem; font-size: 1.05rem; line-height: 1.7; }
+.invest-method ol { list-style: none; margin: 0; padding: 0; }
+.invest-method li { display: grid; grid-template-columns: 46px 1fr; padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.invest-method li span { font: .68rem "Courier New", monospace; color: #8b4f33; }
 .feature-record h2 { margin: .8rem 0 1.5rem; font: italic 400 clamp(3.2rem, 6vw, 6rem)/.9 Georgia, serif; letter-spacing: -.06em; }
 .feature-record > div:first-child > p:not(.eyebrow) { font-size: 1.1rem; line-height: 1.6; }
 .feature-record a, .back-link { display: inline-block; margin-top: 2rem; font: 600 .7rem "Courier New", monospace; text-transform: uppercase; border-bottom: 1px solid; }
@@ -186,6 +192,14 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .photo-detail dd { margin: .5rem 0 0; }
 .record-detail .allocation { max-width: 900px; margin: 7vw auto; }
 .record-detail section { max-width: 800px; margin: 0 auto; }
+.record-detail .monthly-opinion { margin-bottom: 6rem; }
+.monthly-opinion blockquote { margin: 1.5rem 0 0; padding: 2rem 0 2rem 2rem; border-left: 3px solid var(--acid); font: italic 400 clamp(1.7rem, 3.5vw, 3.2rem)/1.35 Georgia, serif; }
+.record-detail .market-news { max-width: 900px; display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-bottom: 6rem; background: var(--line); border: 1px solid var(--line); }
+.market-news-head { grid-column: 1/-1; padding: 0 0 2rem; background: var(--paper); }
+.market-news article { min-height: 240px; padding: 2rem; background: var(--paper); }
+.market-news article > span { font: .68rem "Courier New", monospace; color: #8b4f33; }
+.market-news h3 { margin: 3rem 0 1rem; font: italic 400 2rem Georgia, serif; }
+.market-news p { margin: 0; line-height: 1.7; }
 .record-detail section h2 { font: italic 400 3rem Georgia, serif; }
 .record-detail ol { padding-left: 1.3rem; }
 .record-detail li { padding: .75rem 0; line-height: 1.6; }
@@ -195,7 +209,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .prose-detail .back-link { margin-left: calc((100% - min(740px, 100%))/2); }
 
 @media (max-width: 760px) {
-  .home-photo-grid, .record-cards, .feature-record, .page-intro, .detail-head, .tool-grid, .about-principles { grid-template-columns: 1fr; }
+  .home-photo-grid, .record-cards, .feature-record, .page-intro, .detail-head, .tool-grid, .about-principles, .invest-method { grid-template-columns: 1fr; }
   .home-photo-grid a:nth-child(2) { margin-top: 0; }
   .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: 118vw; }
   .record-cards > a { min-height: 280px; }
@@ -207,5 +221,6 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .record-list > a { grid-template-columns: 1fr auto; gap: .7rem; } .record-list h3, .record-list p { grid-column: 1/-1; }
   .journal-list > a { grid-template-columns: 1fr; } .journal-list p, .journal-list em { grid-column: 1; }
   .detail-head .eyebrow { grid-column: 1; } .detail-head h1 { font-size: 16vw; }
+  .record-detail .market-news { grid-template-columns: 1fr; } .market-news-head { grid-column: 1; }
   .photo-detail dl { grid-template-columns: 1fr; }
 }
