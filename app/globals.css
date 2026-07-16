@@ -167,11 +167,40 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .journal-list p { grid-column: 2; max-width: 620px; margin: 0; line-height: 1.6; }
 .journal-list em { grid-column: 2; font: normal .65rem "Courier New", monospace; text-transform: uppercase; }
 .tool-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
-.tool-grid article { min-height: 310px; display: grid; grid-template-rows: auto 1fr auto; padding: 2rem; background: var(--paper); }
-.tool-grid article > span, .tool-grid article > em { font: normal .68rem "Courier New", monospace; text-transform: uppercase; }
+.tool-grid article, .tool-card { min-height: 310px; display: grid; grid-template-rows: auto 1fr auto; padding: 2rem; background: var(--paper); }
+.tool-grid article > span, .tool-grid article > em, .tool-card > span, .tool-card > em { font: normal .68rem "Courier New", monospace; text-transform: uppercase; }
+.tool-card { transition: background .2s, color .2s; }
+.tool-card:hover { background: var(--ink); color: var(--paper); }
 .tool-grid h2 { margin: .8rem 0; font: italic 400 clamp(2.2rem, 4vw, 4rem)/.95 Georgia, serif; }
 .tool-grid p:not(.eyebrow) { max-width: 420px; line-height: 1.55; }
 .tools-note { margin-top: 3vw; }
+.tool-detail-head { padding: 11vh 3vw 6vw; display: grid; grid-template-columns: 1.25fr .75fr; gap: 4vw; align-items: end; }
+.tool-detail-head .eyebrow { grid-column: 1/-1; }
+.tool-detail-head h1 { margin: 1rem 0 0; font-size: clamp(4rem, 10vw, 9rem); line-height: .76; letter-spacing: -.075em; font-weight: 520; }
+.tool-detail-head h1 i { font-family: Georgia, serif; font-weight: 400; }
+.tool-detail-head > p:last-child { max-width: 520px; font-size: 1.12rem; line-height: 1.65; }
+.tool-detail-content { padding: 0 3vw 9vw; }
+.json-tool { border: 1px solid var(--line); }
+.json-toolbar { min-height: 64px; display: flex; align-items: center; gap: .8rem; padding: .8rem 1rem; border-bottom: 1px solid var(--line); }
+.indent-control { display: flex; align-items: center; gap: .45rem; margin-right: auto; }
+.indent-control span, .json-pane-head, .json-status { font: .65rem "Courier New", monospace; text-transform: uppercase; }
+.json-toolbar button, .json-pane-head button, .json-actions button { border: 1px solid var(--line); background: transparent; color: inherit; padding: .65rem .9rem; font: 600 .65rem "Courier New", monospace; text-transform: uppercase; cursor: pointer; }
+.indent-control button.active, .json-toolbar button:hover, .json-pane-head button:hover { background: var(--ink); color: var(--paper); }
+.json-editors { display: grid; grid-template-columns: 1fr 1fr; min-height: 500px; }
+.json-pane + .json-pane { border-left: 1px solid var(--line); }
+.json-pane { display: grid; grid-template-rows: 48px 1fr; min-width: 0; }
+.json-pane-head { display: flex; align-items: center; justify-content: space-between; padding: .7rem 1rem; border-bottom: 1px solid var(--line); }
+.json-pane-head button { padding: .45rem .7rem; }
+.json-pane-head button:disabled { opacity: .3; cursor: default; }
+.json-pane textarea { width: 100%; min-height: 450px; resize: vertical; border: 0; outline: 0; padding: 1.4rem; background: #e9e6de; color: var(--ink); font: .9rem/1.65 "Courier New", monospace; tab-size: 2; }
+.output-pane textarea { background: var(--ink); color: var(--paper); }
+.json-status { min-height: 46px; display: flex; align-items: center; padding: .7rem 1rem; border-top: 1px solid var(--line); }
+.json-status.valid { background: #d9ff43; }
+.json-status.error { background: #8b4f33; color: white; text-transform: none; }
+.json-actions { display: grid; grid-template-columns: 1.6fr .8fr; gap: 1px; background: var(--line); border-top: 1px solid var(--line); }
+.json-actions button { min-height: 64px; border: 0; background: var(--paper); font-size: .75rem; }
+.json-actions button:first-child { background: var(--acid); }
+.json-actions button:hover { background: var(--ink); color: var(--paper); }
 .about-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .about-principles article { min-height: 350px; padding: 2rem; background: var(--paper); }
 .about-principles span { font: .68rem "Courier New", monospace; }
@@ -210,6 +239,10 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 
 @media (max-width: 760px) {
   .home-photo-grid, .record-cards, .feature-record, .page-intro, .detail-head, .tool-grid, .about-principles, .invest-method { grid-template-columns: 1fr; }
+  .tool-detail-head, .json-editors { grid-template-columns: 1fr; }
+  .tool-detail-head .eyebrow { grid-column: 1; } .tool-detail-head h1 { font-size: 18vw; }
+  .json-pane + .json-pane { border-left: 0; border-top: 1px solid var(--line); }
+  .json-toolbar { align-items: stretch; flex-wrap: wrap; } .indent-control { flex-basis: 100%; }
   .home-photo-grid a:nth-child(2) { margin-top: 0; }
   .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: 118vw; }
   .record-cards > a { min-height: 280px; }
