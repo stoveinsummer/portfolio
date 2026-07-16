@@ -40,3 +40,6 @@ next-env.d.ts
 /.wrangler/
 /outputs/
 /work/
+
+# Local photo originals; optimized WebP copies in public/photos/web are published.
+/public/photos/*.jpg

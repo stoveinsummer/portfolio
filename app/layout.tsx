@@ -3,10 +3,10 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "YOUR NAME — Developer & Photographer",
-    template: "%s — YOUR NAME",
+    default: "JUHWAN — Developer & Photographer",
+    template: "%s — JUHWAN",
   },
-  description: "코드로 만들고 카메라로 기록하는 개발자의 개인 작업 아카이브.",
+  description: "코드로 만들고 카메라로 기록하는 개발자 주환의 개인 작업 아카이브.",
   icons: { icon: "/favicon.svg" },
 };
 

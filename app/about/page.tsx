@@ -1,0 +1,7 @@
+import type { Metadata } from "next";
+import { SiteHeader } from "@/components/SiteHeader";
+import { SiteFooter } from "@/components/SiteFooter";
+import { PageIntro } from "@/components/PageIntro";
+
+export const metadata: Metadata = { title: "About", description: "개인 기록형 웹사이트의 목적과 공개 원칙." };
+export default function AboutPage() { return <main><SiteHeader active="About" /><PageIntro eyebrow="About this digital workshop" title="Made to keep noticing." description="내가 보고, 생각하고, 판단하고, 직접 만든 것을 기록하는 개인 디지털 작업실입니다." /><section className="content-section about-page"><div className="about-principles"><article><span>01</span><h2>왜 만들었나</h2><p>흩어지는 사진과 생각을 한곳에 모으고, 필요할 때 작은 기능을 직접 만들어 오래 사용하기 위해 시작했습니다.</p></article><article><span>02</span><h2>무엇을 기록하나</h2><p>직접 찍은 사진, 금액을 제외한 투자 판단, 개발 메모, 프로젝트 회고와 일상의 짧은 기록을 남깁니다.</p></article><article><span>03</span><h2>무엇을 공개하지 않나</h2><p>투자 총액, 계좌 정보, 보유 수량처럼 규모를 추정할 수 있는 정보와 개인적인 비공개 데이터는 저장하거나 공개하지 않습니다.</p></article><article><span>04</span><h2>어떻게 운영하나</h2><p>현재는 서버와 데이터베이스 없이 정적 파일로 운영합니다. 콘텐츠를 수정한 뒤 GitHub Pages에 다시 배포하는 단순한 구조를 유지합니다.</p></article></div><div className="contact-panel"><p>Developer &amp; photographer · Seoul</p><a href="https://github.com/stoveinsummer" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.instagram.com/im_juhwan/" target="_blank" rel="noreferrer">Instagram @im_juhwan ↗</a><a href="mailto:wnlth96@gmail.com">wnlth96@gmail.com ↗</a></div></section><SiteFooter /></main>; }
