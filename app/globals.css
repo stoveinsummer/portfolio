@@ -133,6 +133,22 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .allocation li { display: grid; grid-template-columns: 12px 1fr 48px 58px; gap: .7rem; align-items: center; padding: .9rem 0; border-bottom: 1px solid var(--line); }
 .allocation li i { width: 10px; height: 10px; border-radius: 50%; }
 .allocation li span, .allocation li em { font: normal .72rem "Courier New", monospace; text-align: right; }
+.growth-section { margin: 2vw 0 9vw; padding: 3vw; border: 1px solid var(--line); }
+.growth-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }
+.growth-head h2 { margin: .6rem 0 0; font: italic 400 clamp(2.8rem, 5vw, 5.5rem)/.9 Georgia, serif; letter-spacing: -.055em; }
+.growth-summary { display: grid; text-align: right; font-family: "Courier New", monospace; text-transform: uppercase; }
+.growth-summary strong { font-size: clamp(2rem, 4vw, 4rem); line-height: 1; }
+.growth-summary span { margin-top: .5rem; font-size: .65rem; }
+.growth-chart { position: relative; height: min(36vw, 430px); min-height: 280px; margin-top: 3rem; border-bottom: 1px solid var(--ink); overflow: hidden; }
+.growth-grid { position: absolute; inset: 0 0 52px; background: repeating-linear-gradient(to bottom, transparent 0, transparent calc(25% - 1px), var(--line) 25%); }
+.growth-line { position: absolute; inset: 0 0 52px; background: var(--acid); filter: drop-shadow(0 2px 0 var(--ink)); clip-path: polygon(0 88%, 100% 24%, 100% calc(24% + 3px), 0 calc(88% + 3px)); }
+.growth-points { position: absolute; inset: 0 0 52px; }
+.growth-points i { position: absolute; width: 12px; height: 12px; border: 3px solid var(--paper); border-radius: 50%; background: var(--ink); transform: translate(-50%, -50%); box-shadow: 0 0 0 1px var(--ink); }
+.growth-labels { position: absolute; inset: auto 0 0; height: 52px; display: flex; justify-content: space-between; align-items: end; }
+.growth-labels span { display: grid; gap: .2rem; font: .62rem "Courier New", monospace; text-transform: uppercase; }
+.growth-labels span:last-child { text-align: right; }
+.growth-labels b { font-size: .78rem; }
+.growth-note { margin: 1.5rem 0 0; font-size: .78rem; line-height: 1.5; opacity: .64; }
 .list-head { border-bottom: 1px solid var(--line); }
 .list-head h2 { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 500; letter-spacing: -.055em; }
 .record-list > a { display: grid; grid-template-columns: 120px 1fr 1.2fr auto; gap: 2rem; align-items: center; padding: 2rem 0; border-bottom: 1px solid var(--line); }
@@ -185,6 +201,9 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .record-cards > a { min-height: 280px; }
   .page-intro { padding-top: 9vh; } .page-intro .eyebrow { grid-column: 1; } .page-intro h1 { font-size: 18vw; }
   .allocation { grid-template-columns: 1fr; } .donut { max-width: 260px; margin: auto; }
+  .growth-section { padding: 1.5rem; margin-bottom: 5rem; }
+  .growth-head { align-items: start; } .growth-summary strong { font-size: 2rem; }
+  .growth-chart { height: 300px; }
   .record-list > a { grid-template-columns: 1fr auto; gap: .7rem; } .record-list h3, .record-list p { grid-column: 1/-1; }
   .journal-list > a { grid-template-columns: 1fr; } .journal-list p, .journal-list em { grid-column: 1; }
   .detail-head .eyebrow { grid-column: 1; } .detail-head h1 { font-size: 16vw; }

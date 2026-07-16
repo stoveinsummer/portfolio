@@ -4,6 +4,7 @@ export const investments: InvestmentRecord[] = [
   {
     id: "2026-07",
     date: "2026-07",
+    growthIndex: 102.8,
     title: "비중을 지키는 달",
     portfolio: [
       { symbol: "QQQI", name: "나스닥 인컴", weight: 45, returnRate: 8.2, category: "인컴" },
@@ -17,6 +18,7 @@ export const investments: InvestmentRecord[] = [
   {
     id: "2026-06",
     date: "2026-06",
+    growthIndex: 100,
     title: "속도보다 규칙",
     portfolio: [
       { symbol: "QQQI", name: "나스닥 인컴", weight: 42, returnRate: 6.4, category: "인컴" },

@@ -25,6 +25,7 @@ export interface InvestmentRecord {
   id: string;
   date: string;
   title: string;
+  growthIndex: number;
   portfolio: PortfolioItem[];
   decisions: string[];
   review: string;
