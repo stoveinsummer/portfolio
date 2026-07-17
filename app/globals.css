@@ -271,6 +271,41 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .compound-table-wrap th:first-child, .compound-table-wrap td:first-child { text-align: left; }
 .compound-table-wrap th { position: sticky; top: 0; background: var(--paper); text-transform: uppercase; }
 .compound-note { margin: 0; padding: 1rem 1.2rem; border-top: 1px solid var(--line); font-size: .75rem; line-height: 1.5; opacity: .65; }
+.team-tool { border: 1px solid var(--line); }
+.team-layout { display: grid; grid-template-columns: 1.08fr .92fr; min-height: 580px; }
+.team-setup, .team-options { padding: clamp(1.5rem, 3vw, 3rem); }
+.team-setup { display: grid; grid-template-rows: auto 1fr auto; gap: 1.5rem; border-right: 1px solid var(--line); background: #e9e6de; }
+.team-setup-head, .team-results-head { display: flex; justify-content: space-between; align-items: end; gap: 1rem; }
+.team-setup h2, .team-options h2, .team-results-head h2 { margin: .6rem 0 0; font: italic 400 clamp(2.2rem, 4vw, 4rem)/.95 Georgia, serif; }
+.team-setup-head > span { font: .65rem "Courier New", monospace; text-transform: uppercase; }
+.team-setup textarea { width: 100%; min-height: 330px; resize: vertical; border: 0; border-bottom: 1px solid var(--ink); outline: 0; padding: 1.2rem; background: var(--paper); color: var(--ink); font: .95rem/1.75 "Courier New", monospace; }
+.team-text-actions, .team-results-head > div { display: flex; gap: .7rem; }
+.team-text-actions button, .team-results-head button { border: 1px solid var(--line); background: transparent; color: inherit; padding: .7rem .9rem; font: 600 .65rem "Courier New", monospace; text-transform: uppercase; cursor: pointer; }
+.team-text-actions button:hover, .team-results-head button:hover { background: var(--ink); color: var(--paper); }
+.team-options { display: flex; flex-direction: column; }
+.team-mode { display: grid; grid-template-columns: 1fr 1fr; gap: 1px; margin-top: 2rem; background: var(--line); border: 1px solid var(--line); }
+.team-mode button { min-height: 118px; display: flex; flex-direction: column; justify-content: space-between; align-items: start; border: 0; padding: 1.1rem; background: var(--paper); color: inherit; text-align: left; cursor: pointer; }
+.team-mode button.active { background: var(--ink); color: var(--paper); }
+.team-mode span { font-weight: 700; } .team-mode em { font: normal .67rem/1.4 "Courier New", monospace; opacity: .68; }
+.team-options > label { display: grid; gap: .7rem; margin-top: 2rem; font-size: .82rem; }
+.team-options > label div { display: grid; grid-template-columns: 1fr auto; border-bottom: 1px solid var(--ink); }
+.team-options input { width: 100%; border: 0; outline: 0; background: transparent; color: inherit; padding: .7rem 0; font: 1.5rem "Courier New", monospace; }
+.team-options label em { display: grid; place-items: center; font: normal .62rem "Courier New", monospace; text-transform: uppercase; }
+.team-preview { display: grid; grid-template-columns: 1fr auto; gap: .5rem; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid var(--line); }
+.team-preview span, .team-preview small { font: .65rem/1.5 "Courier New", monospace; text-transform: uppercase; }
+.team-preview strong { font: 1.4rem "Courier New", monospace; } .team-preview small { grid-column: 1/-1; opacity: .58; text-transform: none; }
+.team-submit { min-height: 66px; margin-top: auto; border: 0; background: var(--acid); color: var(--ink); font: 700 .75rem "Courier New", monospace; text-transform: uppercase; cursor: pointer; }
+.team-submit:hover { background: var(--ink); color: var(--paper); }
+.team-error { padding: 1rem 1.2rem; border-top: 1px solid var(--line); background: #8b4f33; color: white; font-size: .82rem; }
+.team-results { padding: clamp(1.5rem, 3vw, 3rem); border-top: 1px solid var(--line); }
+.team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; margin-top: 2rem; background: var(--line); border: 1px solid var(--line); }
+.team-grid article { min-height: 250px; padding: 1.5rem; background: var(--paper); }
+.team-grid article > span, .team-grid article > strong { font: .65rem "Courier New", monospace; text-transform: uppercase; }
+.team-grid article > strong { float: right; font-weight: 400; opacity: .55; }
+.team-grid ol { list-style: none; margin: 2.5rem 0 0; padding: 0; }
+.team-grid li { display: grid; grid-template-columns: 42px 1fr; padding: .8rem 0; border-bottom: 1px solid var(--line); }
+.team-grid li i { font: normal .65rem "Courier New", monospace; color: #8b4f33; }
+.team-privacy { margin: 0; padding: 1rem 1.2rem; border-top: 1px solid var(--line); font-size: .75rem; opacity: .62; }
 .about-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .about-principles article { min-height: 350px; padding: 2rem; background: var(--paper); }
 .about-principles span { font: .68rem "Courier New", monospace; }
@@ -321,6 +356,9 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .compound-result dl { grid-template-columns: 1fr; } .compound-result dl div { grid-template-columns: 1fr auto; }
   .compound-chart { padding: 3rem 1rem 1rem; } .compound-chart-head { align-items: start; flex-direction: column; }
   .compound-bars { height: 290px; overflow-x: auto; } .compound-bar-column { min-width: 22px; }
+  .team-layout { grid-template-columns: 1fr; } .team-setup { border-right: 0; border-bottom: 1px solid var(--line); }
+  .team-options { min-height: 520px; } .team-results-head { align-items: start; flex-direction: column; }
+  .team-grid { grid-template-columns: 1fr; }
   .home-photo-grid a:nth-child(2) { margin-top: 0; }
   .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: 118vw; }
   .record-cards > a { min-height: 280px; }
