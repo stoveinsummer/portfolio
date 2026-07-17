@@ -77,7 +77,7 @@ export function TeamMaker() {
         <div className="team-options">
           <p className="eyebrow">Divide options</p>
           <h2>어떻게 나눌까요?</h2>
-          <div className="team-mode" role="group" aria-label="팀 나누기 방식"><button className={mode === "team-count" ? "active" : ""} onClick={() => { setMode("team-count"); setTeams([]); }} type="button"><span>팀 개수</span><em>몇 개의 팀을 만들지 선택</em></button><button className={mode === "team-size" ? "active" : ""} onClick={() => { setMode("team-size"); setTeams([]); }} type="button"><span>팀당 인원</span><em>한 팀의 최대 인원 선택</em></button></div>
+          <div className="team-mode" role="group" aria-label="팀 나누기 방식"><button aria-pressed={mode === "team-count"} className={mode === "team-count" ? "active" : ""} onClick={() => { setMode("team-count"); setTeams([]); }} type="button"><span>팀 개수</span><em>몇 개의 팀을 만들지 선택</em></button><button aria-pressed={mode === "team-size"} className={mode === "team-size" ? "active" : ""} onClick={() => { setMode("team-size"); setTeams([]); }} type="button"><span>팀당 인원</span><em>한 팀의 최대 인원 선택</em></button></div>
           <label><span>{mode === "team-count" ? "만들 팀 개수" : "팀당 최대 인원"}</span><div><input type="number" min="1" max="100" value={amount} onChange={(event) => { setAmount(event.target.value); setTeams([]); }} /><em>{mode === "team-count" ? "Teams" : "People"}</em></div></label>
           <div className="team-preview"><span>예상 결과</span><strong>{names.length ? mode === "team-count" ? `${Math.min(Math.max(Number(amount) || 1, 1), names.length)}팀` : `${Math.ceil(names.length / Math.max(Number(amount) || 1, 1))}팀` : "—"}</strong><small>인원 차이는 최대 1명으로 균등하게 배정됩니다.</small></div>
           <button className="team-submit" onClick={makeTeams} type="button">무작위 팀 만들기</button>

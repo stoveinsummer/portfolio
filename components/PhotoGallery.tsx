@@ -29,8 +29,8 @@ export function PhotoGallery({ items }: { items: PhotoItem[] }) {
 
   return <>
     <div className="gallery-filters" aria-label="사진 분류 필터">
-      <div className="filter-row"><strong>주제</strong>{themes.map((item) => <button key={item} className={theme === item ? "active" : ""} onClick={() => { setTheme(item); setActive(null); }}>{item}</button>)}</div>
-      <div className="filter-row"><strong>컬러</strong>{colors.map((item) => <button key={item} className={color === item ? "active" : ""} onClick={() => { setColor(item); setActive(null); }}>{item}</button>)}</div>
+      <div className="filter-row"><strong>주제</strong>{themes.map((item) => <button key={item} aria-pressed={theme === item} className={theme === item ? "active" : ""} onClick={() => { setTheme(item); setActive(null); }}>{item}</button>)}</div>
+      <div className="filter-row"><strong>컬러</strong>{colors.map((item) => <button key={item} aria-pressed={color === item} className={color === item ? "active" : ""} onClick={() => { setColor(item); setActive(null); }}>{item}</button>)}</div>
       <span className="filter-count">{visible.length} photos</span>
     </div>
     <div className="photo-grid">
@@ -43,7 +43,7 @@ export function PhotoGallery({ items }: { items: PhotoItem[] }) {
       <button className="lightbox-close" onClick={() => setActive(null)} aria-label="닫기">×</button>
       <button className="lightbox-nav prev" onClick={() => setActive((active - 1 + visible.length) % visible.length)} aria-label="이전 사진">←</button>
       <img src={srcFor(visible[active])} alt={visible[active].title} />
-      <div className="lightbox-caption"><span>{visible[active].title}</span><span>{visible[active].theme} · {visible[active].color}</span></div>
+      <div className="lightbox-caption"><span>{active + 1} / {visible.length} · {visible[active].title}</span><span>{visible[active].theme} · {visible[active].color} · ← → 이동 · ESC 닫기</span></div>
       <button className="lightbox-nav next" onClick={() => setActive((active + 1) % visible.length)} aria-label="다음 사진">→</button>
     </div>}
   </>;
