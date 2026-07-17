@@ -12,9 +12,14 @@ function safeNumber(value: string, min: number, max: number) {
   return Math.min(Math.max(parsed, min), max);
 }
 
+function formatCurrencyInput(value: string) {
+  const digits = value.replace(/\D/g, "").replace(/^0+(?=\d)/, "");
+  return digits.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 export function CompoundCalculator() {
-  const [initial, setInitial] = useState("10000000");
-  const [monthly, setMonthly] = useState("500000");
+  const [initial, setInitial] = useState("10,000,000");
+  const [monthly, setMonthly] = useState("500,000");
   const [annualRate, setAnnualRate] = useState("7");
   const [years, setYears] = useState("10");
 
@@ -46,11 +51,11 @@ export function CompoundCalculator() {
       <div className="compound-layout">
         <div className="compound-inputs">
           <p className="eyebrow">Input</p>
-          <label><span>초기 투자금</span><div><input inputMode="numeric" value={initial} onChange={(event) => setInitial(event.target.value)} aria-label="초기 투자금" /><em>원</em></div></label>
-          <label><span>매월 추가 투자금</span><div><input inputMode="numeric" value={monthly} onChange={(event) => setMonthly(event.target.value)} aria-label="매월 추가 투자금" /><em>원</em></div></label>
+          <label><span>초기 투자금</span><div><input inputMode="numeric" value={initial} onChange={(event) => setInitial(formatCurrencyInput(event.target.value))} aria-label="초기 투자금" /><em>원</em></div></label>
+          <label><span>매월 추가 투자금</span><div><input inputMode="numeric" value={monthly} onChange={(event) => setMonthly(formatCurrencyInput(event.target.value))} aria-label="매월 추가 투자금" /><em>원</em></div></label>
           <label><span>예상 연 수익률</span><div><input inputMode="decimal" value={annualRate} onChange={(event) => setAnnualRate(event.target.value)} aria-label="예상 연 수익률" /><em>%</em></div></label>
           <label><span>투자 기간</span><div><input inputMode="numeric" value={years} onChange={(event) => setYears(event.target.value)} aria-label="투자 기간" /><em>년</em></div></label>
-          <button type="button" onClick={() => { setInitial("10000000"); setMonthly("500000"); setAnnualRate("7"); setYears("10"); }}>기본값으로 초기화</button>
+          <button type="button" onClick={() => { setInitial("10,000,000"); setMonthly("500,000"); setAnnualRate("7"); setYears("10"); }}>기본값으로 초기화</button>
         </div>
         <div className="compound-result">
           <p className="eyebrow">Estimated result · Monthly compounding</p>
