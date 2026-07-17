@@ -353,6 +353,29 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .prose p { margin: 0 0 2rem; font-size: 1.2rem; line-height: 1.85; }
 .tags { max-width: 740px; display: flex; gap: .8rem; flex-wrap: wrap; margin: 4rem auto 0; font: .68rem "Courier New", monospace; }
 .prose-detail .back-link { margin-left: calc((100% - min(740px, 100%))/2); }
+.tool-card small { display: block; margin-top: 1.2rem; font: .64rem/1.5 "Courier New", monospace; text-transform: uppercase; opacity: .62; }
+.tool-context { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-bottom: 3rem; background: var(--line); border: 1px solid var(--line); }
+.tool-context article { min-height: 210px; padding: 1.8rem; background: var(--paper); }
+.tool-context article > span { font: .65rem "Courier New", monospace; text-transform: uppercase; color: #8b4f33; }
+.tool-context h2 { margin: 2.5rem 0 .8rem; font: italic 400 1.8rem Georgia, serif; }
+.tool-context p { margin: 0; line-height: 1.65; }
+.related-tools { max-width: 900px; margin: 5rem auto 0; padding-top: 2.5rem; border-top: 1px solid var(--line); }
+.related-tools h2 { margin: .8rem 0 2rem; font: italic 400 clamp(2.4rem, 4vw, 4rem) Georgia, serif; }
+.related-tools > div { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+.related-tools a { display: grid; gap: .8rem; padding: 1.5rem; background: var(--paper); }
+.related-tools a:hover { background: var(--acid); }
+.related-tools span { font: .65rem "Courier New", monospace; text-transform: uppercase; }
+.archive-navigation { display: grid; grid-template-columns: 1fr auto 1fr; gap: 1rem; align-items: stretch; max-width: 1000px; margin: 6rem auto 0; padding-top: 2rem; border-top: 1px solid var(--line); text-transform: none; letter-spacing: normal; font: inherit; }
+.archive-navigation > div { min-width: 0; }
+.archive-navigation > div:last-child { text-align: right; }
+.archive-navigation a:not(.archive-navigation-back) { display: grid; gap: .5rem; height: 100%; padding: 1.2rem; border: 1px solid var(--line); border-radius: 0; }
+.archive-navigation a:hover { background: var(--acid); opacity: 1; }
+.archive-navigation span { font: .62rem "Courier New", monospace; text-transform: uppercase; opacity: .6; }
+.archive-navigation strong { overflow-wrap: anywhere; font-size: .9rem; }
+.archive-navigation-back { align-self: center; padding: .8rem; border-bottom: 1px solid; font: .66rem "Courier New", monospace; text-transform: uppercase; }
+.archive-navigation-empty { display: grid; place-items: center; min-height: 100%; padding: 1.2rem; border: 1px dashed var(--line); }
+.gallery-empty { grid-column: 1/-1; padding: 6rem 1rem; text-align: center; color: rgba(22,23,19,.6); }
+.photo-detail > img { height: auto; }
 
 @media (max-width: 760px) {
   .home-photo-grid, .record-cards, .feature-record, .page-intro, .detail-head, .tool-grid, .about-principles, .invest-method { grid-template-columns: 1fr; }
@@ -384,4 +407,8 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .detail-head .eyebrow { grid-column: 1; } .detail-head h1 { font-size: 16vw; }
   .record-detail .market-news { grid-template-columns: 1fr; } .market-news-head { grid-column: 1; }
   .photo-detail dl { grid-template-columns: 1fr; }
+  .tool-context, .related-tools > div { grid-template-columns: 1fr; }
+  .tool-context article { min-height: 0; }
+  .archive-navigation { grid-template-columns: 1fr 1fr; }
+  .archive-navigation-back { grid-column: 1/-1; grid-row: 1; justify-self: center; }
 }

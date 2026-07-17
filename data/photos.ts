@@ -1,4 +1,5 @@
 import type { PhotoItem } from "@/types/content";
+import { preparePhotos } from "@/data/archive";
 
 const rawPhotos: Omit<PhotoItem, "project" | "theme" | "color">[] = [
   { id: "seoul-sunset-traffic", title: "퇴근길의 노을", imageUrl: "../photos/web/seoul-sunset-traffic.webp", takenAt: "2025-03-28", location: "Seoul", description: "도시의 불빛이 켜지기 시작한 순간, 차선 끝에 남은 주황빛을 기록했다.", category: "거리", tags: ["노을", "도시", "퇴근길"], orientation: "portrait" },
@@ -44,4 +45,4 @@ const colors: Record<string, PhotoItem["color"]> = {
   "silver-grass-under-sky": "초록색", "traditional-eaves-monochrome": "무채색", "traditional-eaves-color": "초록색",
 };
 
-export const photos: PhotoItem[] = rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id], theme: themes[photo.id], color: colors[photo.id] }));
+export const photos: PhotoItem[] = preparePhotos(rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id], theme: themes[photo.id], color: colors[photo.id] })));

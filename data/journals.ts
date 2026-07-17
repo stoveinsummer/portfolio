@@ -1,6 +1,7 @@
 import type { JournalEntry } from "@/types/content";
+import { prepareJournals } from "@/data/archive";
 
-export const journals: JournalEntry[] = [
+export const journals: JournalEntry[] = prepareJournals([
   {
     id: "building-my-personal-archive",
     title: "포트폴리오가 아카이브가 되기까지",
@@ -14,5 +15,6 @@ export const journals: JournalEntry[] = [
     ],
     category: "프로젝트 기록",
     tags: ["개인사이트", "아카이브", "개발"],
+    relatedTools: ["json-formatter", "code-diff", "compound-calculator", "team-maker"],
   },
-];
+]);

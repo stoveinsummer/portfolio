@@ -1,6 +1,7 @@
 import type { InvestmentRecord } from "@/types/content";
+import { prepareInvestments } from "@/data/archive";
 
-export const investments: InvestmentRecord[] = [
+export const investments: InvestmentRecord[] = prepareInvestments([
   {
     id: "2026-07",
     date: "2026-07",
@@ -29,4 +30,4 @@ export const investments: InvestmentRecord[] = [
     decisions: ["정해둔 날짜 외 충동 매수하지 않음", "현금 비중을 급하게 낮추지 않음"],
     review: "상승장에서 조급해지지 않는 연습이 필요했다.",
   },
-];
+]);

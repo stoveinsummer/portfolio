@@ -72,11 +72,10 @@ export function CodeDiff() {
   const [right, setRight] = useState("");
   const [compared, setCompared] = useState(false);
   const [ignoreWhitespace, setIgnoreWhitespace] = useState(false);
-  const [swapCount, setSwapCount] = useState(0);
 
   const normalizedLeft = ignoreWhitespace ? left.split("\n").map((line) => line.trim()).join("\n") : left;
   const normalizedRight = ignoreWhitespace ? right.split("\n").map((line) => line.trim()).join("\n") : right;
-  const rows = useMemo(() => compared ? buildDiff(normalizedLeft, normalizedRight) : [], [compared, normalizedLeft, normalizedRight, swapCount]);
+  const rows = useMemo(() => compared ? buildDiff(normalizedLeft, normalizedRight) : [], [compared, normalizedLeft, normalizedRight]);
   const stats = rows.reduce((result, row) => {
     if (row.type !== "same") result[row.type] += 1;
     return result;
@@ -84,7 +83,7 @@ export function CodeDiff() {
 
   const compare = () => setCompared(true);
   const clear = () => { setLeft(""); setRight(""); setCompared(false); };
-  const swap = () => { setLeft(right); setRight(left); setSwapCount((value) => value + 1); };
+  const swap = () => { setLeft(right); setRight(left); };
   const sample = () => { setLeft(originalSample); setRight(changedSample); setCompared(true); };
 
   return (

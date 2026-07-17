@@ -43,6 +43,7 @@ export interface JournalEntry {
   content: string[];
   category: string;
   tags: string[];
+  relatedTools?: string[];
 }
 
 export interface ToolItem {
@@ -51,4 +52,7 @@ export interface ToolItem {
   description: string;
   path: string;
   status: "available" | "planned";
+  reason: string;
+  coreAction: string;
+  dataHandling: string;
 }
