@@ -233,6 +233,44 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .diff-row.changed > div:first-child { background: #edd8d1; } .diff-row.changed > div:last-child { background: #dcebd7; }
 .diff-row.same { opacity: .72; }
 .diff-privacy { margin: 0; padding: 1rem; border-top: 1px solid var(--line); font-size: .75rem; opacity: .62; }
+.compound-tool { border: 1px solid var(--line); }
+.compound-layout { display: grid; grid-template-columns: .75fr 1.25fr; min-height: 510px; }
+.compound-inputs { padding: 2rem; border-right: 1px solid var(--line); background: #e9e6de; }
+.compound-inputs > label { display: grid; gap: .6rem; margin-top: 1.4rem; font-size: .82rem; }
+.compound-inputs label > div { display: grid; grid-template-columns: 1fr 46px; border-bottom: 1px solid var(--ink); }
+.compound-inputs input { width: 100%; border: 0; outline: 0; padding: .75rem 0; background: transparent; color: var(--ink); font: 1.15rem "Courier New", monospace; }
+.compound-inputs em { display: grid; place-items: center end; font: normal .68rem "Courier New", monospace; text-transform: uppercase; }
+.compound-inputs > button { width: 100%; margin-top: 2rem; border: 1px solid var(--line); background: transparent; padding: .75rem; font: 600 .65rem "Courier New", monospace; text-transform: uppercase; cursor: pointer; }
+.compound-inputs > button:hover { background: var(--ink); color: var(--paper); }
+.compound-result { display: flex; flex-direction: column; justify-content: center; padding: clamp(2rem, 5vw, 5rem); background: var(--ink); color: var(--paper); }
+.compound-result > span { margin-top: 4rem; font-size: .85rem; }
+.compound-result > strong { margin: 1rem 0 3rem; font: 400 clamp(2.4rem, 5vw, 5.5rem)/.95 "Courier New", monospace; letter-spacing: -.07em; word-break: keep-all; }
+.compound-result dl { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin: auto 0 0; background: rgba(242,240,233,.22); }
+.compound-result dl div { display: grid; gap: .7rem; padding: 1.2rem; background: var(--ink); }
+.compound-result dt { font: .62rem "Courier New", monospace; text-transform: uppercase; opacity: .62; }
+.compound-result dd { margin: 0; font: .78rem "Courier New", monospace; }
+.positive { color: #6f8d36; } .negative { color: #b4614d; }
+.compound-result .positive { color: var(--acid); }
+.compound-chart { padding: 4vw 2rem 2rem; border-top: 1px solid var(--line); }
+.compound-chart-head { display: flex; justify-content: space-between; align-items: end; gap: 2rem; }
+.compound-chart-head h2 { margin: .7rem 0 0; font: italic 400 clamp(2.5rem, 4vw, 4.5rem)/.95 Georgia, serif; }
+.compound-legend { display: flex; gap: 1.2rem; font: .64rem "Courier New", monospace; text-transform: uppercase; }
+.compound-legend span { display: flex; align-items: center; gap: .45rem; }
+.compound-legend i { width: 10px; height: 10px; }
+.compound-legend .principal, .compound-bar .principal { background: #8b4f33; }
+.compound-legend .interest, .compound-bar .interest { background: var(--acid); }
+.compound-bars { height: 360px; display: flex; align-items: end; gap: clamp(5px, 1.2vw, 18px); margin-top: 3rem; padding-top: 2rem; border-bottom: 1px solid var(--ink); }
+.compound-bar-column { height: 100%; flex: 1; min-width: 16px; display: grid; grid-template-rows: 24px 1fr 28px; align-items: end; }
+.compound-bar-value { overflow: visible; white-space: nowrap; font: .57rem "Courier New", monospace; }
+.compound-bar { min-height: 2px; display: flex; flex-direction: column; justify-content: flex-end; }
+.compound-bar i { display: block; width: 100%; }
+.compound-bar-column > span { padding-top: .5rem; font: .6rem "Courier New", monospace; text-align: center; }
+.compound-table-wrap { max-height: 460px; overflow: auto; border-top: 1px solid var(--line); }
+.compound-table-wrap table { width: 100%; border-collapse: collapse; font: .72rem "Courier New", monospace; }
+.compound-table-wrap th, .compound-table-wrap td { padding: 1rem 1.2rem; border-bottom: 1px solid var(--line); text-align: right; }
+.compound-table-wrap th:first-child, .compound-table-wrap td:first-child { text-align: left; }
+.compound-table-wrap th { position: sticky; top: 0; background: var(--paper); text-transform: uppercase; }
+.compound-note { margin: 0; padding: 1rem 1.2rem; border-top: 1px solid var(--line); font-size: .75rem; line-height: 1.5; opacity: .65; }
 .about-principles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); }
 .about-principles article { min-height: 350px; padding: 2rem; background: var(--paper); }
 .about-principles span { font: .68rem "Courier New", monospace; }
@@ -278,6 +316,11 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .diff-toolbar { align-items: stretch; flex-wrap: wrap; } .diff-toolbar label { flex-basis: 100%; }
   .diff-input-pane + .diff-input-pane { border-left: 0; border-top: 1px solid var(--line); }
   .diff-summary { flex-wrap: wrap; } .diff-summary strong { flex-basis: 100%; }
+  .compound-layout { grid-template-columns: 1fr; } .compound-inputs { border-right: 0; border-bottom: 1px solid var(--line); }
+  .compound-result { min-height: 430px; padding: 2rem; } .compound-result > strong { font-size: 9vw; }
+  .compound-result dl { grid-template-columns: 1fr; } .compound-result dl div { grid-template-columns: 1fr auto; }
+  .compound-chart { padding: 3rem 1rem 1rem; } .compound-chart-head { align-items: start; flex-direction: column; }
+  .compound-bars { height: 290px; overflow-x: auto; } .compound-bar-column { min-width: 22px; }
   .home-photo-grid a:nth-child(2) { margin-top: 0; }
   .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: 118vw; }
   .record-cards > a { min-height: 280px; }
