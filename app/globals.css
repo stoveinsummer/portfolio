@@ -221,17 +221,18 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .diff-summary .added { color: #41683f; } .diff-summary .removed { color: #8b4f33; } .diff-summary .changed { color: #796620; }
 .diff-table { overflow-x: auto; background: #e9e6de; }
 .diff-table-head, .diff-row { display: grid; grid-template-columns: 1fr 1fr; min-width: 760px; }
-.diff-table-head { position: sticky; top: 68px; z-index: 2; background: var(--ink); color: var(--paper); }
-.diff-table-head span { padding: .8rem 4rem; font: .65rem "Courier New", monospace; text-transform: uppercase; }
+.diff-table-head { background: var(--ink); color: var(--paper); }
+.diff-table-head span { padding: 1rem 4.5rem; font: .68rem "Courier New", monospace; text-transform: uppercase; }
 .diff-table-head span + span, .diff-row > div + div { border-left: 1px solid rgba(22,23,19,.24); }
-.diff-row > div { min-height: 29px; display: grid; grid-template-columns: 42px 24px minmax(0, 1fr); align-items: stretch; }
+.diff-row { border-bottom: 1px solid rgba(22,23,19,.12); }
+.diff-row > div { min-height: 40px; display: grid; grid-template-columns: 44px 28px minmax(0, 1fr); align-items: stretch; background: rgba(242,240,233,.66); }
 .diff-row i, .diff-row b { display: grid; align-items: center; font: normal .68rem "Courier New", monospace; text-align: right; user-select: none; }
 .diff-row i { padding-right: .7rem; opacity: .45; border-right: 1px solid var(--line); }
 .diff-row b { justify-content: center; text-align: center; }
-.diff-row code { display: block; min-height: 29px; padding: .35rem .7rem; white-space: pre; font: .78rem/1.45 "Courier New", monospace; }
-.diff-row.added > div:last-child { background: #dcebd7; } .diff-row.removed > div:first-child { background: #edd8d1; }
-.diff-row.changed > div:first-child { background: #edd8d1; } .diff-row.changed > div:last-child { background: #dcebd7; }
-.diff-row.same { opacity: .72; }
+.diff-row code { display: block; min-height: 40px; padding: .65rem .85rem; white-space: pre; font: .82rem/1.5 "Courier New", monospace; }
+.diff-row.added > div:last-child { background: #d3e8cf; } .diff-row.removed > div:first-child { background: #ebd0c7; }
+.diff-row.changed > div:first-child { background: #ebd0c7; } .diff-row.changed > div:last-child { background: #d3e8cf; }
+.diff-row.same > div { background: #f0eee7; color: rgba(22,23,19,.68); }
 .diff-privacy { margin: 0; padding: 1rem; border-top: 1px solid var(--line); font-size: .75rem; opacity: .62; }
 .compound-tool { border: 1px solid var(--line); }
 .compound-layout { display: grid; grid-template-columns: .75fr 1.25fr; min-height: 510px; }
