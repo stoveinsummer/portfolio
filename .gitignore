@@ -28,8 +28,43 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# env files (can opt-in for committing if needed)
-.env*
+# Environment and local configuration. Only sanitized templates are allowed.
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.local
+
+# Credentials, certificates, and signing material
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+credentials*.json
+service-account*.json
+secrets*.json
+.npmrc
+.pnpmrc
+
+# Private data and exports
+/private/
+/local/
+/captures/
+/screenshots/
+/data/private/
+/public/private/
+*.sqlite
+*.sqlite3
+*.db
+*.bak
+*.backup
+
+# Local AI/editor workspace state
+/.codex/
+/.agents/
+/.idea/
+/.vscode/
 
 # vercel
 .vercel
@@ -43,3 +78,8 @@ next-env.d.ts
 
 # Local photo originals; optimized WebP copies in public/photos/web are published.
 /public/photos/*.jpg
+/public/photos/*.jpeg
+/public/photos/*.png
+/public/photos/*.heic
+/public/photos/*.dng
+/public/photos/*.raw
