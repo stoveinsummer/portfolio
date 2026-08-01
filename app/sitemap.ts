@@ -11,7 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     ...staticPaths.map((path) => ({ url: `${origin}${path}/`, changeFrequency: "monthly" as const })),
     ...photos.map((item) => ({ url: `${origin}/photo/${item.id}/`, lastModified: item.takenAt, changeFrequency: "yearly" as const })),
-    ...investments.map((item) => ({ url: `${origin}/invest/${item.id}/`, lastModified: `${item.date}-25`, changeFrequency: "yearly" as const })),
+    ...investments.map((item) => ({ url: `${origin}/invest/${item.id}/`, lastModified: item.date.length === 7 ? `${item.date}-25` : item.date, changeFrequency: "yearly" as const })),
     ...journals.map((item) => ({ url: `${origin}/journal/${item.id}/`, lastModified: item.date, changeFrequency: "yearly" as const })),
     ...tools.filter((item) => item.status === "available").map((item) => ({ url: `${origin}${item.path}/`, changeFrequency: "monthly" as const })),
   ];

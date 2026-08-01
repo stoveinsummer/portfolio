@@ -65,6 +65,8 @@ secrets*.json
 /.agents/
 /.idea/
 /.vscode/
+/.codex-remote-attachments/
+/.pnpm-store/
 
 # vercel
 .vercel

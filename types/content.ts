@@ -16,6 +16,7 @@ export interface PhotoItem {
 export interface PortfolioItem {
   symbol: string;
   name: string;
+  quantity?: string;
   weight: number;
   returnRate: number | null;
   category: string;

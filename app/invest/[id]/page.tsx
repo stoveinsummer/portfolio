@@ -18,10 +18,10 @@ export default async function InvestDetail({ params }: { params: Promise<{ id: s
 
   return <main><SiteHeader active="Invest" /><article className="detail record-detail">
     <div className="detail-head"><p className="eyebrow">Investment review · {record.date}</p><h1>{record.title}</h1><p>{record.review}</p></div>
-    <div className="notice">개인 투자 기록이며 투자 권유가 아닙니다. 총액·수량·매수금액은 기록하거나 공개하지 않습니다.</div>
+    <div className="notice">개인 투자 기록이며 투자 권유가 아닙니다. 총액·평단가는 기록하거나 공개하지 않지만, 종목별 수량은 함께 남깁니다.</div>
     <AllocationChart items={record.portfolio} />
-    <section className="monthly-opinion"><p className="eyebrow">One-line opinion</p><h2>이번 달 투자 의견</h2><blockquote>{record.review}</blockquote></section>
-    <section className="market-news"><div className="market-news-head"><p className="eyebrow">Market context</p><h2>이달의 시장 뉴스</h2></div><article><span>KR</span><h3>국내 증시</h3><p>{record.marketNews?.korea ?? "기록하지 않음"}</p></article><article><span>US</span><h3>미국 증시</h3><p>{record.marketNews?.us ?? "기록하지 않음"}</p></article></section>
+    <section className="monthly-opinion"><p className="eyebrow">One-line opinion</p><h2>이번 달 투자 해설</h2><blockquote>{record.review}</blockquote></section>
+    <section className="market-news"><div className="market-news-head"><p className="eyebrow">Market context</p><h2>이번 달 시장 이슈</h2></div><article><span>KR</span><h3>국내 증시</h3><p>{record.marketNews?.korea ?? "기록되지 않음"}</p></article><article><span>US</span><h3>미국 증시</h3><p>{record.marketNews?.us ?? "기록되지 않음"}</p></article></section>
     <section><h2>이번 달 판단</h2><ol>{record.decisions.map((decision) => <li key={decision}>{decision}</li>)}</ol></section>
     <ArchiveNavigation previous={older ? { href: `/invest/${older.id}`, label: older.date } : null} next={newer ? { href: `/invest/${newer.id}`, label: newer.date } : null} backHref="/invest" backLabel="투자 기록 목록" />
   </article><SiteFooter /></main>;
