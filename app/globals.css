@@ -128,7 +128,7 @@ nav a { color: var(--muted); font-weight: 700; }
 .tool-grid p:not(.eyebrow) { color: var(--muted); }
 .tool-card:hover p:not(.eyebrow) { color: #b0b8c1; }
 .json-tool, .diff-tool, .compound-tool, .team-tool { overflow: hidden; border-color: var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-.site-header:has(.nav-active[href="/photo"]) ~ .page-intro h1, .site-header:has(.nav-active[href="/journal"]) ~ .page-intro h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+.site-header:has(.nav-active[href$="/photo/"]) ~ .page-intro h1, .site-header:has(.nav-active[href$="/journal/"]) ~ .page-intro h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
 .gallery-filters { top: 88px; width: calc(100% - 32px); max-width: 1376px; margin-inline: auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.92); box-shadow: var(--shadow); }
 .gallery-filters button.active, .gallery-filters button:hover { border-color: var(--blue); background: var(--blue); color: white; }
 .photo-grid { max-width: 1440px; margin-inline: auto; padding-inline: 4vw; }
@@ -218,9 +218,9 @@ footer { max-width: 1440px; margin: 0 auto; border-color: var(--line); color: va
 .record-cards h3 { font-family: Arial, "Pretendard", sans-serif; font-style: normal; font-weight: 750; }
 
 /* Developer area: bold product-led structure, inspired by engineering portfolios */
-.site-header:has(.nav-active[href="/tools"]) ~ .page-intro h1,
+.site-header:has(.nav-active[href$="/tools/"]) ~ .page-intro h1,
 .site-header:has(.nav-active[href^="/tools/"]) ~ .tool-detail-head h1 { max-width: 900px; font-size: clamp(4.5rem, 10vw, 9rem); }
-.site-header:has(.nav-active[href="/tools"]) ~ .page-intro { padding-bottom: 4vw; }
+.site-header:has(.nav-active[href$="/tools/"]) ~ .page-intro { padding-bottom: 4vw; }
 .tool-grid { gap: 18px; border: 0; background: transparent; }
 .tool-grid article, .tool-card { min-height: 350px; overflow: hidden; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
 .tool-card::after { content: "↗"; position: absolute; right: 1.6rem; top: 1.5rem; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 50%; background: var(--blue-soft); color: var(--blue); font-size: 1.1rem; }
@@ -238,10 +238,10 @@ footer { max-width: 1440px; margin: 0 auto; border-color: var(--line); color: va
 .json-pane:focus-within .json-pane-head, .diff-input-pane:focus-within > div { background: var(--blue-soft); color: var(--blue); }
 
 /* Photography and journal: image-first editorial rhythm without cropping */
-.site-header:has(.nav-active[href="/photo"]) ~ .page-intro h1,
-.site-header:has(.nav-active[href="/journal"]) ~ .page-intro h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
-.site-header:has(.nav-active[href="/photo"]) ~ .page-intro,
-.site-header:has(.nav-active[href="/journal"]) ~ .page-intro { border-bottom: 1px solid var(--line); }
+.site-header:has(.nav-active[href$="/photo/"]) ~ .page-intro h1,
+.site-header:has(.nav-active[href$="/journal/"]) ~ .page-intro h1 { font-family: Georgia, serif; font-style: italic; font-weight: 400; }
+.site-header:has(.nav-active[href$="/photo/"]) ~ .page-intro,
+.site-header:has(.nav-active[href$="/journal/"]) ~ .page-intro { border-bottom: 1px solid var(--line); }
 .gallery-filters { top: 88px; width: calc(100% - 32px); max-width: 1376px; margin: 0 auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.9); box-shadow: var(--shadow); }
 .filter-row strong { color: var(--blue); }
 .gallery-filters button { border-color: var(--line); font-family: Arial, sans-serif; text-transform: none; }
@@ -710,7 +710,7 @@ nav a { color: var(--muted); font-weight: 700; }
 .tool-grid p:not(.eyebrow) { color: var(--muted); }
 .tool-card:hover p:not(.eyebrow) { color: #b0b8c1; }
 .json-tool,.diff-tool,.compound-tool,.team-tool { overflow: hidden; border-color: var(--line); border-radius: var(--radius); background: var(--surface); box-shadow: var(--shadow); }
-.site-header:has(.nav-active[href="/photo"])~.page-intro h1,.site-header:has(.nav-active[href="/journal"])~.page-intro h1 { font-family: Georgia,serif; font-style: italic; font-weight: 400; }
+.site-header:has(.nav-active[href$="/photo/"])~.page-intro h1,.site-header:has(.nav-active[href$="/journal/"])~.page-intro h1 { font-family: Georgia,serif; font-style: italic; font-weight: 400; }
 .gallery-filters { top: 88px; width: calc(100% - 32px); max-width: 1376px; margin-inline: auto; border: 1px solid var(--line); border-radius: 18px; background: rgba(255,255,255,.92); box-shadow: var(--shadow); }
 .gallery-filters button.active,.gallery-filters button:hover { border-color: var(--blue); background: var(--blue); color: white; }
 .photo-grid { max-width: 1440px; margin-inline: auto; padding-inline: 4vw; }
