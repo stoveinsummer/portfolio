@@ -31,7 +31,7 @@ export default function InvestPage() {
 
       <PortfolioGrowthChart records={investments} />
 
-      <section className="archive-methodology"><div><p className="eyebrow">Methodology</p><h2>공개 기준</h2></div><dl><div><dt>Performance</dt><dd>첫 기록을 100으로 환산한 상대 지수</dd></div><div><dt>Holdings</dt><dd>종목별 비중·수량·보유 수익률</dd></div><div><dt>Private</dt><dd>계좌 총액·평가금액·평단가·계좌정보</dd></div><div><dt>Frequency</dt><dd>월 1회 이상, 포트폴리오 화면 기준</dd></div></dl></section>
+      <section className="archive-methodology"><div><p className="eyebrow">Methodology</p><h2>공개 기준</h2></div><dl><div><dt>Performance</dt><dd>첫 기록을 100으로 환산한 상대 지수</dd></div><div><dt>Holdings</dt><dd>종목·수량 상세 기록은 2026년 8월부터</dd></div><div><dt>Private</dt><dd>계좌 총액·평가금액·평단가·계좌정보</dd></div><div><dt>Frequency</dt><dd>월 1회 이상, 포트폴리오 화면 기준</dd></div></dl></section>
 
       <div className="list-head"><p className="eyebrow">Archive</p><h2>Monthly records</h2></div>
       <div className="record-list">{investments.map((record) => <Link href={`/invest/${record.id}`} key={record.id}><time>{record.date}</time><h3>{record.title}</h3><p>{record.review}</p><strong>{record.growthIndex.toFixed(1)}</strong><span>Review ↗</span></Link>)}</div>

@@ -3,6 +3,7 @@ import type { InvestmentRecord } from "@/types/content";
 const signed = (value: number) => `${value >= 0 ? "+" : ""}${value.toFixed(1)}%`;
 
 export function InvestmentDashboard({ record, startIndex }: { record: InvestmentRecord; startIndex: number }) {
+  const hasQuantityRecords = record.portfolio.some((item) => item.quantity);
   const topHolding = [...record.portfolio].sort((a, b) => b.weight - a.weight)[0];
   const measured = record.portfolio.filter((item) => item.returnRate !== null);
   const measuredWeight = measured.reduce((sum, item) => sum + item.weight, 0);
@@ -22,7 +23,7 @@ export function InvestmentDashboard({ record, startIndex }: { record: Investment
       <div><dt>보유 자산</dt><dd>{record.portfolio.length}<small>positions</small></dd></div>
       <div><dt>최대 비중</dt><dd>{topHolding?.weight.toFixed(1)}%<small>{topHolding?.symbol}</small></dd></div>
       <div><dt>가중 보유 수익률</dt><dd className={weightedReturn >= 0 ? "positive" : "negative"}>{signed(weightedReturn)}<small>공개 종목 기준</small></dd></div>
-      <div><dt>공개 범위</dt><dd className="privacy-value">비중·수량<small>총액·평단가 비공개</small></dd></div>
+      <div><dt>공개 범위</dt><dd className="privacy-value">{hasQuantityRecords ? "비중·수량" : "비중"}<small>{hasQuantityRecords ? "수량 기록 2026-08 시작" : "수량 기록 시작 전"}</small></dd></div>
     </dl>
   </section>;
 }

@@ -24,8 +24,8 @@ export const investments: InvestmentRecord[] = prepareInvestments([
     growthIndex: 102.8,
     title: "비중은 지키는 중",
     portfolio: [
-      { symbol: "QQQI", name: "나스닥 인컴", quantity: "137.022816주", weight: 45, returnRate: 8.2, category: "인컴" },
-      { symbol: "QLD", name: "나스닥 2배", quantity: "26.471057주", weight: 30, returnRate: 24.1, category: "성장" },
+      { symbol: "QQQI", name: "나스닥 인컴", weight: 45, returnRate: 8.2, category: "인컴" },
+      { symbol: "QLD", name: "나스닥 2배", weight: 30, returnRate: 24.1, category: "성장" },
       { symbol: "CASH", name: "현금", weight: 15, returnRate: null, category: "현금" },
       { symbol: "OTHER", name: "기타", weight: 10, returnRate: null, category: "기타" },
     ],
@@ -38,8 +38,8 @@ export const investments: InvestmentRecord[] = prepareInvestments([
     growthIndex: 100,
     title: "속도보다 규칙",
     portfolio: [
-      { symbol: "QQQI", name: "나스닥 인컴", quantity: "130주", weight: 42, returnRate: 6.4, category: "인컴" },
-      { symbol: "QLD", name: "나스닥 2배", quantity: "24주", weight: 28, returnRate: 18.6, category: "성장" },
+      { symbol: "QQQI", name: "나스닥 인컴", weight: 42, returnRate: 6.4, category: "인컴" },
+      { symbol: "QLD", name: "나스닥 2배", weight: 28, returnRate: 18.6, category: "성장" },
       { symbol: "CASH", name: "현금", weight: 20, returnRate: null, category: "현금" },
       { symbol: "OTHER", name: "기타", weight: 10, returnRate: null, category: "기타" },
     ],

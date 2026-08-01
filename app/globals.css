@@ -869,3 +869,13 @@ samp {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+.historical-holdings-note {
+  margin: 1.5rem 0 0;
+  padding: 1rem 1.2rem;
+  border-radius: 14px;
+  background: var(--surface-soft);
+  color: var(--muted);
+  font-size: .9rem;
+  line-height: 1.6;
+}
