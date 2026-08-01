@@ -43,7 +43,7 @@ export function PhotoGallery({ items }: { items: PhotoItem[] }) {
     </div>
     <div className="photo-grid">
       {visible.map((photo, index) => <article className={`photo-card ${photo.orientation}`} key={photo.id}>
-        <button onClick={(event) => { lastTriggerRef.current = event.currentTarget; setActive(index); }} aria-label={`${photo.title} 크게 보기`}><img src={srcFor(photo)} alt={photo.title} loading="lazy" width={photo.orientation === "portrait" ? 1200 : 1600} height={photo.orientation === "portrait" ? 1600 : 1200} /></button>
+        <button onClick={(event) => { lastTriggerRef.current = event.currentTarget; setActive(index); }} aria-label={`${photo.title} 크게 보기`}><img src={srcFor(photo)} alt={photo.title} loading="lazy" width={photo.width} height={photo.height} /></button>
         <div className="photo-meta"><div><strong>{photo.title}</strong><span>{photo.theme} · {photo.color}</span><span>{photo.location} · {photo.takenAt}</span></div><Link href={`/photo/${photo.id}`}>기록 보기 ↗</Link></div>
       </article>)}
     </div>
@@ -51,7 +51,7 @@ export function PhotoGallery({ items }: { items: PhotoItem[] }) {
     {active !== null && <div className="lightbox" role="dialog" aria-modal="true" aria-label="사진 크게 보기" onMouseDown={(event) => { if (event.target === event.currentTarget) closeLightbox(); }}>
       <button ref={closeButtonRef} className="lightbox-close" onClick={closeLightbox} aria-label="닫기">×</button>
       <button className="lightbox-nav prev" onClick={() => setActive((active - 1 + visible.length) % visible.length)} aria-label="이전 사진">←</button>
-      <img src={srcFor(visible[active])} alt={visible[active].title} width={visible[active].orientation === "portrait" ? 1200 : 1600} height={visible[active].orientation === "portrait" ? 1600 : 1200} />
+      <img src={srcFor(visible[active])} alt={visible[active].title} width={visible[active].width} height={visible[active].height} />
       <div className="lightbox-caption"><span>{active + 1} / {visible.length} · {visible[active].title}</span><span>{visible[active].theme} · {visible[active].color} · ← → 이동 · ESC 닫기</span></div>
       <button className="lightbox-nav next" onClick={() => setActive((active + 1) % visible.length)} aria-label="다음 사진">→</button>
     </div>}

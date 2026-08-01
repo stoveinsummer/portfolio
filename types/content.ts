@@ -2,6 +2,8 @@ export interface PhotoItem {
   id: string;
   title: string;
   imageUrl: string;
+  width: number;
+  height: number;
   takenAt: string;
   location: string;
   description: string;

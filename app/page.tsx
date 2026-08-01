@@ -21,7 +21,7 @@ export default function Home() {
     </section>
     <section className="home-section home-photos">
       <div className="section-head"><h2>Recent photos</h2><Link href="/photo">All photos ↗</Link></div>
-      <div className="home-photo-grid">{recentPhotos.map((photo) => <Link href={`/photo/${photo.id}`} key={photo.id}><img src={photoSrc(photo.imageUrl.split("/").pop()!)} alt={photo.title} width={photo.orientation === "portrait" ? 1200 : 1600} height={photo.orientation === "portrait" ? 1600 : 1200} /><span>{photo.title}<em>{photo.takenAt}</em></span></Link>)}</div>
+      <div className="home-photo-grid">{recentPhotos.map((photo) => <Link href={`/photo/${photo.id}`} key={photo.id}><img src={photoSrc(photo.imageUrl.split("/").pop()!)} alt={photo.title} width={photo.width} height={photo.height} /><span>{photo.title}<em>{photo.takenAt}</em></span></Link>)}</div>
     </section>
     <section className="home-section record-preview">
       <div className="section-head"><h2>Current records</h2><span>Static files · Updated by hand</span></div>

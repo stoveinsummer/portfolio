@@ -67,7 +67,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .photo-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 6vw 1.2vw; padding: 5vw 1.2vw 12vw; align-items: start; }
 .photo-card { grid-column: span 7; padding: 0; border: 0; background: transparent; color: inherit; text-align: left; cursor: zoom-in; }
 .photo-card:nth-child(4n+2), .photo-card:nth-child(4n+3) { grid-column: span 5; margin-top: 10vw; }
-.photo-card img { display: block; width: 100%; height: auto; max-height: 82vh; object-fit: cover; filter: saturate(.88); transition: filter .3s, transform .3s; }
+.photo-card img { display: block; width: 100%; height: auto; filter: saturate(.88); transition: filter .3s, transform .3s; }
 .photo-card:hover img { filter: saturate(1.05); transform: translateY(-4px); }
 .photo-card span { display: flex; justify-content: space-between; padding-top: .75rem; font: .66rem "Courier New", monospace; text-transform: uppercase; }
 .photo-card span b, .photo-card span em { font-style: normal; font-weight: 500; }
@@ -103,8 +103,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .home-section, .content-section { padding: 9vw 3vw; }
 .home-photo-grid { display: grid; grid-template-columns: 1.15fr .85fr .85fr; gap: 1.2vw; padding-top: 3vw; align-items: start; }
 .home-photo-grid a:nth-child(2) { margin-top: 8vw; }
-.home-photo-grid img { width: 100%; height: min(52vw, 660px); object-fit: cover; display: block; }
-.home-photo-grid a:not(:first-child) img { height: min(40vw, 510px); }
+.home-photo-grid img { display: block; width: 100%; height: auto; }
 .home-photo-grid span { display: flex; justify-content: space-between; gap: 1rem; padding-top: .75rem; font: 600 .7rem "Courier New", monospace; text-transform: uppercase; }
 .home-photo-grid em { font-style: normal; font-weight: 400; opacity: .6; }
 .record-preview { background: var(--ink); color: var(--paper); }
@@ -332,7 +331,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .detail-head .eyebrow { grid-column: 1/-1; }
 .detail-head h1 { margin: 0; font: italic 400 clamp(4.5rem, 9vw, 9rem)/.84 Georgia, serif; letter-spacing: -.065em; }
 .detail-head > p:last-child { font-size: 1.15rem; line-height: 1.7; }
-.photo-detail > img { display: block; max-width: 100%; max-height: 85vh; margin: 0 auto; }
+.photo-detail > img { display: block; width: auto; max-width: 100%; height: auto; margin: 0 auto; }
 .photo-detail dl { display: grid; grid-template-columns: repeat(4, 1fr); margin: 3rem 0 0; border-top: 1px solid var(--line); }
 .photo-detail dl div { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
 .photo-detail dt { font: .65rem "Courier New", monospace; text-transform: uppercase; }
@@ -396,7 +395,7 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .team-options { min-height: 520px; } .team-results-head { align-items: start; flex-direction: column; }
   .team-grid { grid-template-columns: 1fr; }
   .home-photo-grid a:nth-child(2) { margin-top: 0; }
-  .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: 118vw; }
+  .home-photo-grid img, .home-photo-grid a:not(:first-child) img { height: auto; }
   .record-cards > a { min-height: 280px; }
   .page-intro { padding-top: 9vh; } .page-intro .eyebrow { grid-column: 1; } .page-intro h1 { font-size: 18vw; }
   .allocation { grid-template-columns: 1fr; } .donut { max-width: 260px; margin: auto; }

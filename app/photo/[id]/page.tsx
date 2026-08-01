@@ -19,7 +19,7 @@ export default async function PhotoDetail({ params }: { params: Promise<{ id: st
 
   return <main><SiteHeader active="Photo" /><article className="detail photo-detail">
     <div className="detail-head"><p className="eyebrow">{photo.category} · {photo.takenAt}</p><h1>{photo.title}</h1><p>{photo.description}</p></div>
-    <img src={src} alt={photo.title} width={photo.orientation === "portrait" ? 1200 : 1600} height={photo.orientation === "portrait" ? 1600 : 1200} />
+    <img src={src} alt={photo.title} width={photo.width} height={photo.height} />
     <dl><div><dt>Location</dt><dd>{photo.location}</dd></div><div><dt>Date</dt><dd>{photo.takenAt}</dd></div><div><dt>Theme</dt><dd>{photo.theme}</dd></div><div><dt>Color</dt><dd>{photo.color}</dd></div><div><dt>Project</dt><dd>{photo.project}</dd></div><div><dt>Tags</dt><dd>{photo.tags.join(" · ")}</dd></div></dl>
     <ArchiveNavigation previous={older ? { href: `/photo/${older.id}`, label: older.title } : null} next={newer ? { href: `/photo/${newer.id}`, label: newer.title } : null} backHref="/photo" backLabel="사진 목록" />
   </article><SiteFooter /></main>;

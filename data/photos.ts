@@ -1,7 +1,7 @@
 import type { PhotoItem } from "@/types/content";
 import { preparePhotos } from "@/data/archive";
 
-const rawPhotos: Omit<PhotoItem, "project" | "theme" | "color">[] = [
+const rawPhotos: Omit<PhotoItem, "project" | "theme" | "color" | "width" | "height">[] = [
   { id: "seoul-sunset-traffic", title: "퇴근길의 노을", imageUrl: "../photos/web/seoul-sunset-traffic.webp", takenAt: "2025-03-28", location: "Seoul", description: "도시의 불빛이 켜지기 시작한 순간, 차선 끝에 남은 주황빛을 기록했다.", category: "거리", tags: ["노을", "도시", "퇴근길"], orientation: "portrait" },
   { id: "moon-over-power-lines", title: "전선 사이의 달", imageUrl: "../photos/web/moon-over-power-lines.webp", takenAt: "2025-05-07", location: "Seoul", description: "복잡하게 겹친 전선과 작게 떠 있는 달의 대비.", category: "디테일", tags: ["달", "전선", "푸른시간"], orientation: "portrait" },
   { id: "summer-clouds-and-wires", title: "여름 구름", imageUrl: "../photos/web/summer-clouds-and-wires.webp", takenAt: "2025-07-27", location: "Seoul", description: "전선이 프레임을 가르는 한낮의 큰 구름.", category: "자연", tags: ["구름", "여름", "하늘"], orientation: "portrait" },
@@ -15,6 +15,21 @@ const rawPhotos: Omit<PhotoItem, "project" | "theme" | "color">[] = [
   { id: "traditional-eaves-monochrome", title: "처마의 대칭 — 흑백", imageUrl: "../photos/web/traditional-eaves-monochrome.webp", takenAt: "2025-10-18", location: "Seoul", description: "단청의 색을 덜어내고 구조와 반복에 집중했다.", category: "디테일", tags: ["처마", "대칭", "흑백"], orientation: "portrait" },
   { id: "traditional-eaves-color", title: "처마의 대칭 — 컬러", imageUrl: "../photos/web/traditional-eaves-color.webp", takenAt: "2025-10-18", location: "Seoul", description: "초록 단청과 목재의 선이 중앙에서 만나는 장면.", category: "건축", tags: ["단청", "대칭", "전통건축"], orientation: "portrait" },
 ];
+
+const dimensions: Record<string, Pick<PhotoItem, "width" | "height">> = {
+  "seoul-sunset-traffic": { width: 1650, height: 2200 },
+  "moon-over-power-lines": { width: 1650, height: 2200 },
+  "summer-clouds-and-wires": { width: 1650, height: 2200 },
+  "sun-rays-after-storm": { width: 2200, height: 1760 },
+  "autumn-ginkgo-canopy": { width: 1650, height: 2200 },
+  "snow-covered-trees-at-night": { width: 2200, height: 1650 },
+  "seoul-evening-traffic": { width: 1571, height: 2200 },
+  "red-brick-and-reflection": { width: 1760, height: 2200 },
+  "colorful-glass-dome": { width: 2200, height: 1467 },
+  "silver-grass-under-sky": { width: 1760, height: 2200 },
+  "traditional-eaves-monochrome": { width: 1760, height: 2200 },
+  "traditional-eaves-color": { width: 1760, height: 2200 },
+};
 
 const projects: Record<string, string> = {
   "seoul-sunset-traffic": "City after work",
@@ -45,4 +60,4 @@ const colors: Record<string, PhotoItem["color"]> = {
   "silver-grass-under-sky": "초록색", "traditional-eaves-monochrome": "무채색", "traditional-eaves-color": "초록색",
 };
 
-export const photos: PhotoItem[] = preparePhotos(rawPhotos.map((photo) => ({ ...photo, project: projects[photo.id], theme: themes[photo.id], color: colors[photo.id] })));
+export const photos: PhotoItem[] = preparePhotos(rawPhotos.map((photo) => ({ ...photo, ...dimensions[photo.id], project: projects[photo.id], theme: themes[photo.id], color: colors[photo.id] })));

@@ -22,6 +22,7 @@ export function preparePhotos(items: PhotoItem[]) {
     requireText(item.title, `photos/${item.id}: 제목`);
     requireText(item.description, `photos/${item.id}: 설명`);
     requireText(item.imageUrl, `photos/${item.id}: 이미지 경로`);
+    if (item.width <= 0 || item.height <= 0) throw new Error(`photos/${item.id}: 원본 이미지 크기가 올바르지 않습니다.`);
   });
   return [...items].sort((a, b) => b.takenAt.localeCompare(a.takenAt));
 }
