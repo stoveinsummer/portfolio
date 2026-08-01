@@ -21,7 +21,6 @@ export function AllocationChart({ items }: { items: PortfolioItem[] }) {
             <strong>{item.symbol}</strong>
             <span>{item.weight}%</span>
             <em>{item.returnRate === null ? "—" : `${item.returnRate > 0 ? "+" : ""}${item.returnRate}%`}</em>
-            {item.quantity ? <small>{item.quantity}</small> : null}
           </li>
         ))}
       </ul>

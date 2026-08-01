@@ -825,3 +825,47 @@ kbd,
 samp {
   font-family: var(--site-mono);
 }
+
+/* Keep the allocation summary and detailed holdings table in their own bounds. */
+.portfolio-panel {
+  grid-template-columns: minmax(0, .8fr) minmax(680px, 1.2fr);
+  gap: 2rem;
+}
+
+.allocation {
+  min-width: 0;
+  grid-template-columns: minmax(150px, 220px) minmax(0, 1fr);
+  gap: clamp(1.25rem, 2vw, 2rem);
+}
+
+.allocation ul {
+  min-width: 0;
+}
+
+.allocation li {
+  grid-template-columns: 10px minmax(54px, 1fr) auto auto;
+  gap: .6rem;
+}
+
+.holdings-table-wrap {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 1280px) {
+  .portfolio-panel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2.5rem;
+  }
+
+  .allocation {
+    width: min(100%, 720px);
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 560px) {
+  .allocation {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
