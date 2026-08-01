@@ -129,6 +129,52 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .photo-meta span, .photo-meta a { font: .65rem "Courier New", monospace; text-transform: uppercase; }
 .photo-meta a { align-self: end; border-bottom: 1px solid; }
 .notice { padding: 1rem 1.2rem; background: #e7e3d8; border-left: 3px solid #8b4f33; font-size: .9rem; line-height: 1.5; }
+.invest-page { padding-top: 2rem; }
+.invest-dashboard { display: grid; grid-template-columns: minmax(280px, .85fr) 1.65fr; margin: 2rem 0 8vw; border: 1px solid var(--ink); background: var(--ink); color: var(--paper); }
+.invest-dashboard-lead { min-height: 320px; display: flex; flex-direction: column; padding: 2rem; border-right: 1px solid rgba(242,240,233,.22); }
+.invest-dashboard-lead .eyebrow { color: var(--acid); }
+.dashboard-index-label { margin-top: auto; font: .62rem "Courier New", monospace; text-transform: uppercase; opacity: .58; }
+.invest-dashboard-lead > strong { margin-top: .4rem; font: 500 clamp(4.8rem, 9vw, 9rem)/.82 Arial, sans-serif; letter-spacing: -.07em; }
+.invest-dashboard-lead > em { margin-top: 1.2rem; font: normal .7rem "Courier New", monospace; text-transform: uppercase; }
+.invest-dashboard dl { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; }
+.invest-dashboard dl > div { min-width: 0; display: flex; flex-direction: column; justify-content: space-between; padding: 2rem; border-right: 1px solid rgba(242,240,233,.22); border-bottom: 1px solid rgba(242,240,233,.22); }
+.invest-dashboard dl > div:nth-child(2n) { border-right: 0; }
+.invest-dashboard dl > div:nth-last-child(-n+2) { border-bottom: 0; }
+.invest-dashboard dt { font: .62rem "Courier New", monospace; text-transform: uppercase; opacity: .58; }
+.invest-dashboard dd { display: grid; gap: .45rem; margin: 2rem 0 0; font: 500 clamp(1.7rem, 3vw, 3.2rem)/1 Arial, sans-serif; letter-spacing: -.05em; }
+.invest-dashboard dd small { font: .62rem "Courier New", monospace; text-transform: uppercase; letter-spacing: .04em; opacity: .58; }
+.invest-dashboard .privacy-value { font-size: clamp(1.25rem, 2vw, 2rem); }
+.positive { color: #66865f; }
+.negative { color: #a95d4a; }
+.invest-dashboard .positive { color: var(--acid); }
+.invest-dashboard .negative { color: #f28d77; }
+.invest-section-head { display: grid; grid-template-columns: 1fr minmax(260px, .55fr); gap: 4vw; align-items: end; margin: 0 0 2.5rem; padding-bottom: 1.5rem; border-bottom: 1px solid var(--ink); }
+.invest-section-head h2 { margin: .7rem 0 0; font: italic 400 clamp(3rem, 6vw, 6rem)/.9 Georgia, serif; letter-spacing: -.06em; }
+.invest-section-head > p { margin: 0; line-height: 1.65; }
+.portfolio-panel { display: grid; grid-template-columns: minmax(420px, .75fr) 1.25fr; gap: 5vw; align-items: center; margin-bottom: 9vw; }
+.holdings-table-wrap { min-width: 0; overflow-x: auto; border-block: 1px solid var(--ink); }
+.holdings-table { width: 100%; border-collapse: collapse; min-width: 680px; }
+.holdings-table th { padding: .9rem .7rem; color: #8b4f33; font: 600 .6rem "Courier New", monospace; text-align: right; text-transform: uppercase; }
+.holdings-table th:first-child, .holdings-table td:first-child { text-align: left; }
+.holdings-table td { padding: 1.3rem .7rem; border-top: 1px solid var(--line); font: .75rem "Courier New", monospace; text-align: right; white-space: nowrap; }
+.holdings-table td:first-child { display: grid; gap: .25rem; }
+.holdings-table td:first-child strong { font: 700 1rem Arial, sans-serif; }
+.holdings-table td:first-child span { opacity: .55; }
+.allocation-cell { min-width: 115px; display: grid; grid-template-columns: 1fr 45px; gap: .6rem; align-items: center; }
+.allocation-cell > span { display: block; max-width: 100%; height: 5px; background: var(--ink); }
+.allocation-cell b { font-weight: 400; }
+.strategy-panel { display: grid; grid-template-columns: .85fr 1.15fr; gap: 8vw; margin: 0 0 9vw; padding: 6vw; background: #e7e3d8; }
+.strategy-panel h2 { margin: 1rem 0 0; font: italic 400 clamp(3rem, 5.5vw, 5.8rem)/.92 Georgia, serif; letter-spacing: -.055em; }
+.strategy-panel > div:last-child > p { max-width: 580px; margin: 0 0 2rem; font-size: 1.05rem; line-height: 1.7; }
+.strategy-panel ol, .record-decisions ol { list-style: none; margin: 0; padding: 0; }
+.strategy-panel li, .record-decisions li { display: grid; grid-template-columns: 46px 1fr; gap: .8rem; padding: 1.15rem 0; border-bottom: 1px solid var(--line); line-height: 1.55; }
+.strategy-panel li span, .record-decisions li span { color: #8b4f33; font: .68rem "Courier New", monospace; }
+.archive-methodology { display: grid; grid-template-columns: .6fr 1.4fr; gap: 6vw; margin: 0 0 9vw; padding: 3rem 0; border-block: 1px solid var(--ink); }
+.archive-methodology h2 { margin: .6rem 0 0; font: italic 400 3rem Georgia, serif; }
+.archive-methodology dl { display: grid; grid-template-columns: repeat(2, 1fr); margin: 0; }
+.archive-methodology dl > div { padding: 1.2rem; border-left: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.archive-methodology dt { font: .62rem "Courier New", monospace; text-transform: uppercase; color: #8b4f33; }
+.archive-methodology dd { margin: .8rem 0 0; line-height: 1.55; }
 .feature-record { display: grid; grid-template-columns: .8fr 1.2fr; gap: 8vw; padding: 7vw 0; align-items: center; }
 .invest-method { display: grid; grid-template-columns: 1fr 1fr; gap: 7vw; padding: 7vw 0; border-bottom: 1px solid var(--line); }
 .invest-method h2 { margin: 1rem 0 0; font: italic 400 clamp(3rem, 5.5vw, 5.8rem)/.92 Georgia, serif; letter-spacing: -.055em; }
@@ -165,10 +211,11 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .growth-note { margin: 1.5rem 0 0; font-size: .78rem; line-height: 1.5; opacity: .64; }
 .list-head { border-bottom: 1px solid var(--line); }
 .list-head h2 { font-size: clamp(2.5rem, 5vw, 5rem); font-weight: 500; letter-spacing: -.055em; }
-.record-list > a { display: grid; grid-template-columns: 120px 1fr 1.2fr auto; gap: 2rem; align-items: center; padding: 2rem 0; border-bottom: 1px solid var(--line); }
+.record-list > a { display: grid; grid-template-columns: 120px 1fr 1.2fr 70px auto; gap: 2rem; align-items: center; padding: 2rem 0; border-bottom: 1px solid var(--line); }
 .record-list time, .record-list span { font: .68rem "Courier New", monospace; text-transform: uppercase; }
 .record-list h3 { margin: 0; font: italic 400 2rem Georgia, serif; }
 .record-list p { margin: 0; line-height: 1.5; }
+.record-list > a > strong { font: 500 1.25rem "Courier New", monospace; text-align: right; }
 .journal-list > a { display: grid; grid-template-columns: 180px 1fr; gap: 1rem 4vw; padding: 3rem 0; border-bottom: 1px solid var(--line); }
 .journal-list > a > div { display: flex; flex-direction: column; gap: .5rem; font: .68rem "Courier New", monospace; text-transform: uppercase; }
 .journal-list h2 { margin: 0; font: italic 400 clamp(2.5rem, 5vw, 5rem)/.95 Georgia, serif; letter-spacing: -.05em; }
@@ -336,7 +383,10 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .photo-detail dl div { padding: 1.4rem 0; border-bottom: 1px solid var(--line); }
 .photo-detail dt { font: .65rem "Courier New", monospace; text-transform: uppercase; }
 .photo-detail dd { margin: .5rem 0 0; }
-.record-detail .allocation { max-width: 900px; margin: 7vw auto; }
+.record-detail .invest-dashboard, .record-detail .record-allocation { max-width: 1100px; }
+.record-detail .invest-dashboard { margin: 2rem auto 7vw; }
+.record-detail .record-allocation { margin-bottom: 7vw; }
+.record-detail .record-allocation .allocation { max-width: 900px; margin: 3rem auto; }
 .record-detail section { max-width: 800px; margin: 0 auto; }
 .record-detail .monthly-opinion { margin-bottom: 6rem; }
 .monthly-opinion blockquote { margin: 1.5rem 0 0; padding: 2rem 0 2rem 2rem; border-left: 3px solid var(--acid); font: italic 400 clamp(1.7rem, 3.5vw, 3.2rem)/1.35 Georgia, serif; }
@@ -349,6 +399,8 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
 .record-detail section h2 { font: italic 400 3rem Georgia, serif; }
 .record-detail ol { padding-left: 1.3rem; }
 .record-detail li { padding: .75rem 0; line-height: 1.6; }
+.record-detail .record-decisions { margin-bottom: 6rem; }
+.record-detail .record-decisions ol { padding: 0; }
 .prose { max-width: 740px; margin: 0 auto; }
 .prose p { margin: 0 0 2rem; font-size: 1.2rem; line-height: 1.85; }
 .tags { max-width: 740px; display: flex; gap: .8rem; flex-wrap: wrap; margin: 4rem auto 0; font: .68rem "Courier New", monospace; }
@@ -399,10 +451,21 @@ footer { display: flex; justify-content: space-between; padding: 2rem 3vw; borde
   .record-cards > a { min-height: 280px; }
   .page-intro { padding-top: 9vh; } .page-intro .eyebrow { grid-column: 1; } .page-intro h1 { font-size: 18vw; }
   .allocation { grid-template-columns: 1fr; } .donut { max-width: 260px; margin: auto; }
+  .invest-dashboard { grid-template-columns: 1fr; margin-bottom: 5rem; }
+  .invest-dashboard-lead { min-height: 280px; border-right: 0; border-bottom: 1px solid rgba(242,240,233,.22); }
+  .invest-dashboard dl { grid-template-columns: 1fr 1fr; }
+  .invest-dashboard dl > div { min-height: 150px; padding: 1.2rem; }
+  .invest-dashboard dd { font-size: 1.55rem; }
+  .invest-section-head, .strategy-panel, .archive-methodology { grid-template-columns: 1fr; }
+  .portfolio-panel { grid-template-columns: 1fr; gap: 3rem; }
+  .strategy-panel { padding: 3rem 1.4rem; }
+  .archive-methodology dl { grid-template-columns: 1fr; }
+  .archive-methodology dl > div { border-left: 0; }
+  .holdings-table-wrap { margin-inline: -3vw; padding-inline: 3vw; }
   .growth-section { padding: 1.5rem; margin-bottom: 5rem; }
   .growth-head { align-items: start; } .growth-summary strong { font-size: 2rem; }
   .growth-chart { height: 300px; }
-  .record-list > a { grid-template-columns: 1fr auto; gap: .7rem; } .record-list h3, .record-list p { grid-column: 1/-1; }
+  .record-list > a { grid-template-columns: 1fr auto; gap: .7rem; } .record-list h3, .record-list p { grid-column: 1/-1; } .record-list > a > strong { grid-column: 1; grid-row: 4; text-align: left; } .record-list > a > span { grid-column: 2; grid-row: 4; }
   .journal-list > a { grid-template-columns: 1fr; } .journal-list p, .journal-list em { grid-column: 1; }
   .detail-head .eyebrow { grid-column: 1; } .detail-head h1 { font-size: 16vw; }
   .record-detail .market-news { grid-template-columns: 1fr; } .market-news-head { grid-column: 1; }
