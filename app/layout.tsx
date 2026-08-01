@@ -1,5 +1,14 @@
 import type { Metadata } from "next";
+import localFont from "next/font/local";
 import "./globals.css";
+
+const pretendard = localFont({
+  src: "./fonts/PretendardVariable.woff2",
+  display: "swap",
+  weight: "45 920",
+  style: "normal",
+  variable: "--font-pretendard",
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://stoveinsummer.github.io"),
@@ -16,7 +25,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ko">
-      <body>{children}</body>
+      <body className={pretendard.variable}>{children}</body>
     </html>
   );
 }
