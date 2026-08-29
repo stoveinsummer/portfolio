@@ -3,6 +3,22 @@ import { prepareInvestments } from "@/data/archive";
 
 export const investments: InvestmentRecord[] = prepareInvestments([
   {
+    id: "2026-08-29",
+    date: "2026-08-29",
+    growthIndex: 111.7,
+    title: "8월 말 포트폴리오 스냅샷",
+    portfolio: [
+      { symbol: "QQQI", name: "나스닥 인컴", quantity: "138.848451주", weight: 75.3, returnRate: 5.7, category: "인컴" },
+      { symbol: "QLD", name: "나스닥 2배", quantity: "27.573371주", weight: 24.7, returnRate: 22.2, category: "성장" },
+    ],
+    decisions: ["이번 달 투자 의견은 아직 기록하지 않음"],
+    review: "월 소감 미기록",
+    marketNews: {
+      korea: "미국 장기금리 급등이 반도체주에 부담을 줬고, 원·달러 환율은 외국인 순매수와 기업 환전 물량 속에서 하락 압력을 받았다.",
+      us: "엔비디아 호실적이 기술주를 끌어올렸지만, 잭슨홀에서 인플레이션 지속 시 금리 인상 가능성이 언급되며 나스닥 변동성이 커졌다.",
+    },
+  },
+  {
     id: "2026-08-01",
     date: "2026-08-01",
     growthIndex: 105.3,
