@@ -1,0 +1,1 @@
+{"name": "JUHWAN", "short_name": "JUHWAN", "description": "사진, 기록과 개인 도구", "start_url": "/", "display": "standalone", "background_color": "#fbfcfe", "theme_color": "#fbfcfe", "icons": [{"src": "/app-icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable"}]}

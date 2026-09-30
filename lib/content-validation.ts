@@ -1,0 +1,12 @@
+import {z} from "zod";
+export const contentKinds=["photo","journal","invest"] as const;
+export type ContentKind=typeof contentKinds[number];
+const id=z.string().regex(/^[a-z0-9][a-z0-9-]{0,79}$/);
+const text=(n:number)=>z.string().trim().min(1).max(n);
+const date=z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v=>{const d=new Date(v+"T00:00:00Z");return !isNaN(d.getTime())&&d.toISOString().slice(0,10)===v});
+const tags=z.array(text(40)).max(20);
+const photo=z.object({id,title:text(150),imageUrl:z.string().regex(/^\/(photos\/web\/[a-z0-9-]+\.webp|api\/images\/[a-f0-9-]{36})$/),width:z.number().int().positive().max(30000),height:z.number().int().positive().max(30000),takenAt:date,location:z.string().trim().max(150),description:text(5000),category:z.enum(["거리","자연","건축","디테일"]),project:z.string().trim().max(100),theme:z.enum(["도시의 시간","하늘 관찰","계절의 기록","선과 구조"]),color:z.enum(["따뜻한 색","푸른색","초록색","노란색","보라색","무채색","다채로운 색"]),tags,orientation:z.enum(["landscape","portrait"])});
+const journal=z.object({id,title:text(150),date,summary:text(1000),content:z.array(text(10000)).min(1).max(100),category:text(50),tags,relatedTools:z.array(text(80)).max(20).optional()});
+const invest=z.object({id,title:text(150),date:z.string().regex(/^\d{4}-(0[1-9]|1[0-2])(?:-(0[1-9]|[12]\d|3[01]))?$/),growthIndex:z.number().finite().positive().max(1000000).nullable(),marketCloseDate:z.string().regex(/^\d{4}-\d{2}-\d{2}$/).optional(),totalUsd:z.number().finite().nonnegative().max(1000000000).optional(),accountReturnRate:z.number().finite().min(-100).max(100000).nullable().optional(),portfolio:z.array(z.object({symbol:text(40),name:text(150),quantity:z.string().trim().max(100).optional(),closePriceUsd:z.number().finite().positive().max(1000000).optional(),weight:z.number().finite().min(0).max(100),returnRate:z.number().finite().min(-100).max(100000).nullable(),category:text(80)})).min(1).max(50),decisions:z.array(text(3000)).min(1).max(50),review:text(10000),marketNews:z.object({korea:z.string().max(5000),us:z.string().max(5000)}).optional()}).refine(v=>Math.abs(v.portfolio.reduce((n,p)=>n+p.weight,0)-100)<0.001,{message:"종목 비중의 합계는 100%여야 합니다."});
+export const contentSchemas={photo,journal,invest};
+export const contentRequest=z.object({kind:z.enum(contentKinds),revision:z.number().int().min(0),item:z.unknown()});

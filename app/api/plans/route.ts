@@ -1,0 +1,5 @@
+import { getChatGPTUser } from "../../chatgpt-auth";
+import {getBinding} from "@/db";
+import {planSchema,defaults} from "@/lib/workout";
+export async function GET(){const u=await getChatGPTUser();if(!u)return Response.json({error:"로그인이 필요합니다."},{status:401});try{const row=await getBinding().prepare("SELECT plans_json FROM workout_plans WHERE user_id=?").bind(u.userId).first<{plans_json:string}>();return Response.json({plans:row?JSON.parse(row.plans_json):defaults});}catch(e){console.error(e);return Response.json({error:"루틴을 불러오지 못했습니다."},{status:500});}}
+export async function PUT(req:Request){const u=await getChatGPTUser();if(!u)return Response.json({error:"로그인이 필요합니다."},{status:401});try{const p=planSchema.safeParse(await req.json());if(!p.success)return Response.json({error:"종목명과 세트 수를 확인해 주세요."},{status:400});await getBinding().prepare("INSERT INTO workout_plans(user_id,plans_json) VALUES(?,?) ON CONFLICT(user_id) DO UPDATE SET plans_json=excluded.plans_json").bind(u.userId,JSON.stringify(p.data)).run();return Response.json({saved:true});}catch(e){console.error(e);return Response.json({error:"루틴을 저장하지 못했습니다."},{status:500});}}

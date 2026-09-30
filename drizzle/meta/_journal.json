@@ -1,0 +1,48 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1789955627869,
+      "tag": "0000_stormy_steel_serpent",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1789957883611,
+      "tag": "0001_absurd_lifeguard",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1789967353272,
+      "tag": "0002_romantic_starfox",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1790408515625,
+      "tag": "0003_purple_midnight",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1790417617020,
+      "tag": "0004_empty_jamie_braddock",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "6",
+      "when": 1790477122654,
+      "tag": "0005_faithful_blue_shield",
+      "breakpoints": true
+    }
+  ]
+}

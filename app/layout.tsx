@@ -1,31 +1,20 @@
-import type { Metadata } from "next";
-import localFont from "next/font/local";
+import type { Metadata, Viewport } from "next";
+import { Toaster } from "@/components/ui/sonner";
+import ServiceWorkerRegistration from "./service-worker-registration";
+import "./portfolio.css";
 import "./globals.css";
-
-const pretendard = localFont({
-  src: "./fonts/PretendardVariable.woff2",
-  display: "swap",
-  weight: "45 920",
-  style: "normal",
-  variable: "--font-pretendard",
-});
+import { SiteThemeProvider, ThemeControl } from "@/components/ThemeControls";
+import { Home, Settings2 } from "lucide-react";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://stoveinsummer.github.io"),
-  title: {
-    default: "JUHWAN — Developer & Photographer",
-    template: "%s — JUHWAN",
-  },
-  description: "코드로 만들고 카메라로 기록하는 개발자 주환의 개인 작업 아카이브.",
-  icons: { icon: "/portfolio/favicon.svg" },
-  openGraph: { type: "website", locale: "ko_KR", siteName: "JUHWAN", title: "JUHWAN — Developer & Photographer", description: "사진, 투자 판단, 개발 메모와 직접 만든 도구를 쌓아가는 개인 기록 공간.", images: [{ url: "/portfolio/photos/web/sun-rays-after-storm.webp", alt: "구름 사이로 비치는 빛을 촬영한 사진" }] },
-  twitter: { card: "summary_large_image", title: "JUHWAN — Developer & Photographer", description: "사진, 투자 판단, 개발 메모와 직접 만든 도구를 쌓아가는 개인 기록 공간.", images: ["/portfolio/photos/web/sun-rays-after-storm.webp"] },
+  title: "JUHWAN",
+  description: "사진, 저널, 투자 기록과 개인 도구를 한곳에서.",
+  manifest: "/manifest.webmanifest",
+  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg", apple: "/app-icon.svg" },
 };
 
+export const viewport: Viewport = { themeColor: [{ media: "(prefers-color-scheme: light)", color: "#fbfcfe" }, { media: "(prefers-color-scheme: dark)", color: "#16191f" }], colorScheme: "light dark", width: "device-width", initialScale: 1, viewportFit: "cover" };
+
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return (
-    <html lang="ko">
-      <body className={pretendard.variable}>{children}</body>
-    </html>
-  );
+  return <html lang="ko" suppressHydrationWarning><body className="antialiased"><SiteThemeProvider><header className="hub-header"><a className="hub-wordmark" href="/">JUHWAN</a><nav className="hub-account"><a href="/" aria-label="도구 홈"><Home size={20}/></a><a href="/settings" aria-label="설정"><Settings2 size={20}/></a><ThemeControl/></nav></header>{children}<Toaster position="top-center" richColors /><ServiceWorkerRegistration /></SiteThemeProvider></body></html>;
 }

@@ -28,45 +28,9 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# Environment and local configuration. Only sanitized templates are allowed.
-.env
-.env.*
+# env files (can opt-in for committing if needed)
+.env*
 !.env.example
-!.env.*.example
-*.local
-
-# Credentials, certificates, and signing material
-*.key
-*.p12
-*.pfx
-*.jks
-*.keystore
-credentials*.json
-service-account*.json
-secrets*.json
-.npmrc
-.pnpmrc
-
-# Private data and exports
-/private/
-/local/
-/captures/
-/screenshots/
-/data/private/
-/public/private/
-*.sqlite
-*.sqlite3
-*.db
-*.bak
-*.backup
-
-# Local AI/editor workspace state
-/.codex/
-/.agents/
-/.idea/
-/.vscode/
-/.codex-remote-attachments/
-/.pnpm-store/
 
 # vercel
 .vercel
@@ -75,13 +39,10 @@ secrets*.json
 next-env.d.ts
 /dist/
 /.wrangler/
+# Checkout-local execution profile and tool state; never publish them.
+/.sites-runtime/
+/.agents/
+/.codex/
 /outputs/
 /work/
-
-# Local photo originals; optimized WebP copies in public/photos/web are published.
-/public/photos/*.jpg
-/public/photos/*.jpeg
-/public/photos/*.png
-/public/photos/*.heic
-/public/photos/*.dng
-/public/photos/*.raw
+*.tsbuildinfo

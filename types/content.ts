@@ -19,6 +19,7 @@ export interface PortfolioItem {
   symbol: string;
   name: string;
   quantity?: string;
+  closePriceUsd?: number;
   weight: number;
   returnRate: number | null;
   category: string;
@@ -28,7 +29,10 @@ export interface InvestmentRecord {
   id: string;
   date: string;
   title: string;
-  growthIndex: number;
+  growthIndex: number | null;
+  marketCloseDate?: string;
+  totalUsd?: number;
+  accountReturnRate?: number | null;
   portfolio: PortfolioItem[];
   decisions: string[];
   review: string;

@@ -1,83 +1,51 @@
-# JUHWAN — Personal Digital Workshop
+# JUHWAN
 
-사진, 투자 판단, 저널과 개인용 도구를 정적 파일로 관리하는 개인 기록형 웹사이트입니다.
+사진, 투자, 저널과 개인 도구를 모은 개인 작업 공간입니다. 기존 정적 포트폴리오를 로그인·콘텐츠 편집·운동 기록이 가능한 웹 앱으로 확장했습니다.
 
-- 공개 사이트: https://stoveinsummer.github.io/portfolio/
-- 호스팅: GitHub Pages
-- 구조: Next.js App Router + TypeScript + 일반 CSS
-- 데이터: `data/*.ts`
-- 서버·DB·로그인·외부 API 없음
+운영 주소: [juhwan.wnlth96.chatgpt.site](https://juhwan.wnlth96.chatgpt.site) (접근 권한이 필요합니다)
 
-## 로컬 실행
+## 주요 기능
 
-Node.js 22와 pnpm을 사용합니다.
+- **운동:** 사용자별 루틴과 종목 추가·수정·삭제, 복제, 순서 변경. 기구·운동 변형·메모를 자유롭게 입력하고 웨이트, 맨몸, 시간·거리, 시간 방식으로 기록합니다. 종목을 바꿔도 과거 세트 기록은 유지됩니다.
+- **사진:** 주제·컬러 필터, 확대 보기, 촬영 정보, 소유자 업로드·편집.
+- **투자:** 자산 배분, 보유 현황, 기준 지수와 월별 판단 기록.
+- **저널:** 글 작성·수정, 상세 페이지, 댓글.
+- **도구:** JSON 정렬, 코드 비교, 복리 계산, 무작위 팀 편성. 입력은 브라우저 안에서 처리합니다.
+- **개인 설정:** 홈 아이콘 순서 저장. 사용자별 운동 데이터와 콘텐츠 소유자 권한을 분리합니다.
+- **복구:** 소유자 전용 JSON 백업·복원. 운동·루틴·홈 설정·투자 원장·작성 콘텐츠를 구조화 데이터로 보관합니다.
+- **투자 검증:** 월말 스냅샷과 현재 보유액의 차이, 현금 포함 기준, 배당·입출금 환율 누락을 점검합니다.
 
-```bash
-pnpm install
+## 기술 구성
+
+React · TypeScript · Vinext/Vite · Tailwind CSS · shadcn/ui · Cloudflare D1/R2 · Drizzle · Sites 인증/호스팅.
+
+`app/`은 페이지와 API, `components/`는 화면 구성, `lib/`는 검증·데이터 접근, `db/schema.ts`와 `drizzle/`은 스키마 및 마이그레이션입니다. 이 공개 저장소에는 운영 데이터베이스, 투자·운동·저널 기록, 사용자 백업 JSON, 업로드 사진, R2 객체와 인증 비밀값을 포함하지 않습니다. 초기 데이터 파일은 빈 상태이며 실제 기록은 사이트의 소유자 전용 백업 기능으로 따로 보관합니다.
+
+## 로컬 개발 및 검증
+
+Node.js 22.13 이상과 package.json에 명시된 pnpm 버전을 사용합니다.
+
+```sh
+pnpm install --frozen-lockfile
+pnpm build
+# docs/runtime.md의 Local D1 migrations 절에 따라 drizzle/*.sql을 순서대로 적용
 pnpm dev
 ```
 
-정적 내보내기 검증:
-
-```bash
+```sh
+pnpm exec tsc --noEmit
 pnpm build
+node scripts/verify-integration.mjs
 ```
 
-빌드 결과는 `out/`에 생성됩니다.
+통합 검증은 분리된 임시 D1/R2에서 사용자별 격리, 운동 저장·종목 편집·삭제 후 기록 보존, 콘텐츠 권한, 댓글 권한, 이미지 업로드 등을 확인합니다. 운영 데이터에 접근하지 않습니다. 자세한 실행 프로필·바인딩·인증 설명은 [런타임 안내](docs/runtime.md)를 참고하세요.
 
-## 파일 구조
+## 배포
 
-```text
-app/
-  page.tsx              홈
-  photo/                사진 목록·상세
-  invest/               투자 기록 목록·상세
-  journal/              저널 목록·상세
-  tools/                도구 목록
-  about/                사이트 소개
-components/             공통 화면과 차트·갤러리
-data/                   직접 수정하는 정적 콘텐츠
-types/                  콘텐츠 타입
-public/photos/
-  web/                   게시용 WebP 사진
-.github/workflows/       GitHub Pages 자동 배포
-```
+이 앱은 서버 API와 D1/R2가 필요하므로 GitHub Pages 정적 호스팅을 사용하지 않습니다. GitHub Pages 자동 배포 워크플로는 제거했습니다. 서비스 배포 대상은 Sites이며, 이 저장소는 소스 코드와 변경 이력을 보관합니다.
 
-## 사진 추가
+복구할 때는 먼저 이 저장소의 소스로 앱과 D1/R2 바인딩을 구성한 뒤, 사이트의 `설정 → 데이터 백업·복원`에서 내려받은 JSON을 가져옵니다. 업로드 사진의 원본 바이너리는 JSON 백업에 포함되지 않으므로 별도 보관이 필요합니다. 이전 GitHub Pages 버전은 `legacy-pages-2026-09-30` 태그에 보존되어 있습니다.
 
-1. 원본 사진은 `public/photos/`에 보관합니다. JPG 원본은 Git에 올라가지 않도록 설정되어 있습니다.
-2. 긴 변 약 2,200px의 WebP 게시용 파일을 만들고 `public/photos/web/`에 넣습니다.
-3. `data/photos.ts` 배열에 사진 정보를 추가합니다.
-4. `id`는 영문 소문자와 하이픈만 사용하고 중복되지 않게 작성합니다.
-5. `theme`은 사진의 주제, `color`는 화면에서 보이는 대표 색감으로 지정합니다.
-6. 커밋 후 `main` 브랜치에 푸시하면 자동으로 배포됩니다.
+## UI/UX
 
-## 투자 기록 추가
-
-`data/investments.ts`의 `investments` 배열에 월별 기록을 추가합니다.
-
-- 총 투자금·평가금액·수량·매수금액은 기록하지 않습니다.
-- `weight` 합계는 100이 되게 작성합니다.
-- 공개 가능한 비중, 수익률, 판단과 복기만 입력합니다.
-- 상세 페이지는 `id`를 기준으로 빌드 시 자동 생성됩니다.
-
-## 저널 추가
-
-`data/journals.ts`에 항목을 추가합니다. `content`는 문단별 문자열 배열입니다. 상세 페이지는 빌드 시 자동 생성됩니다.
-
-## 새 도구 추가
-
-1. `data/tools.ts`에 도구 카드 정보를 먼저 추가합니다.
-2. 준비 중에는 `status: "planned"`를 사용합니다.
-3. 실제 구현 시 `app/tools/<도구-id>/page.tsx`를 만들고 `status: "available"`로 변경합니다.
-4. 브라우저 안에서만 처리하고 입력값을 외부 서버로 전송하지 않는 도구를 우선합니다.
-
-## GitHub Pages 배포
-
-`.github/workflows/deploy-pages.yml`이 `main` 브랜치 푸시를 감지해 정적 사이트를 빌드하고 배포합니다. 저장소 설정의 Pages 배포 소스는 `GitHub Actions`여야 합니다.
-
-저장소 하위 경로 `/portfolio`는 `next.config.ts`에서 CI 빌드일 때 자동 적용됩니다. 모든 상세 경로는 정적으로 생성되고 `trailingSlash`를 사용하므로 GitHub Pages에서 직접 열거나 새로고침해도 동작합니다.
-
-## 나중에 백엔드가 필요해질 때
-
-현재 정적 데이터 파일은 유지하면서 데이터 접근 부분만 API 또는 데이터베이스 호출로 교체할 수 있습니다. 로그인, 비공개 기록, 사진 직접 업로드, 자동 투자 데이터 수집이 실제로 필요해진 시점에 별도 2차 프로젝트로 서버 구조를 도입합니다.
+[UI UX Pro Max](https://uupm.cc/)의 접근성, 명확한 피드백, 반응형 레이아웃 원칙을 참고했습니다. 단색 아이콘과 중립적인 색상을 유지하고 콘텐츠 중심 레이아웃, 일관된 탐색, 바로 보이는 편집 동작, 자동 라이트·다크 테마를 적용했습니다.

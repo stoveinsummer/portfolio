@@ -1,6 +1,6 @@
 import type { PortfolioItem } from "@/types/content";
 
-const colors = ["#d9ff43", "#8b4f33", "#9cb7aa", "#c8c2b5", "#687c92"];
+const colors = ["#303b49", "#657387", "#8d9bac", "#b4bfca", "#d9dfe5"];
 
 export function AllocationChart({ items }: { items: PortfolioItem[] }) {
   const stops = items

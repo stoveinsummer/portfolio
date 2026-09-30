@@ -1,0 +1,4 @@
+import {env} from "cloudflare:workers";
+import {getChatGPTUser} from "@/app/chatgpt-auth";
+import {getBinding} from "@/db";
+export async function GET(_req:Request,{params}:{params:Promise<{id:string}>}){const u=await getChatGPTUser();if(!u)return new Response(null,{status:401});try{const {id}=await params;if(!/^[a-f0-9-]{36}$/.test(id))return new Response(null,{status:404});const row=await getBinding().prepare("SELECT object_key,content_type FROM uploaded_images WHERE id=?").bind(id).first<{object_key:string;content_type:string}>();if(!row)return new Response(null,{status:404});if(!env.BUCKET)throw Error('R2 unavailable');const obj=await env.BUCKET.get(row.object_key);if(!obj)return new Response(null,{status:404});return new Response(obj.body,{headers:{'Content-Type':row.content_type,'Cache-Control':'private,no-store','X-Content-Type-Options':'nosniff','Content-Disposition':'inline'}})}catch(e){console.error(e);return new Response(null,{status:500})}}

@@ -1,0 +1,8 @@
+"use client";
+import {useState} from "react";
+import {ArrowUp,ArrowDown} from "lucide-react";
+import {Button} from "@/components/ui/button";
+import {toast} from "sonner";
+import {type AppKey,defaultOrder} from "@/lib/home-order";
+const names={workout:'운동',photo:'사진',invest:'투자 기록',journal:'저널',timeline:'캘린더',tools:'도구 모음',settings:'설정'};
+export function HomeOrder({initial}:{initial:AppKey[]}){const [order,setOrder]=useState(initial),[busy,setBusy]=useState(false);function move(i:number,delta:number){const next=[...order];[next[i],next[i+delta]]=[next[i+delta],next[i]];setOrder(next)}async function save(){setBusy(true);try{const r=await fetch('/api/home-order',{method:'PUT',headers:{'content-type':'application/json'},body:JSON.stringify(order)});if(!r.ok)throw Error();toast.success('아이콘 순서를 저장했습니다.')}catch{toast.error('저장하지 못했습니다. 다시 시도해 주세요.')}finally{setBusy(false)}}return <section><h2>홈 아이콘 순서</h2><p className="text-sm text-muted-foreground">위쪽 항목부터 왼쪽에서 오른쪽으로 표시됩니다. 본인 계정에만 적용됩니다.</p><div className="divide-y rounded-xl border">{order.map((key,i)=><div key={key} className="flex items-center justify-between gap-3 p-3"><span>{i+1}. {names[key]}</span><div className="flex gap-1"><Button variant="ghost" aria-label={`${names[key]} 앞으로`} disabled={busy||i===0} onClick={()=>move(i,-1)}><ArrowUp size={18}/></Button><Button variant="ghost" aria-label={`${names[key]} 뒤로`} disabled={busy||i===order.length-1} onClick={()=>move(i,1)}><ArrowDown size={18}/></Button></div></div>)}</div><div className="mt-4 flex justify-between gap-3"><Button variant="ghost" disabled={busy} onClick={()=>setOrder([...defaultOrder])}>기본 순서</Button><Button disabled={busy} onClick={()=>void save()}>{busy?'저장 중…':'순서 저장'}</Button></div></section>}

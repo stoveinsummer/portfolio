@@ -1,17 +1,12 @@
-import Link from "next/link";
-
+import { CalendarDays, Camera, ChartNoAxesCombined, Dumbbell, NotebookPen, Wrench } from "lucide-react";
 const navigation = [
-  ["Home", "/"], ["Photo", "/photo"], ["Invest", "/invest"],
-  ["Journal", "/journal"], ["Tools", "/tools"], ["About", "/about"],
-] as const;
-
+  { key: "Workout", label: "운동", href: "/workout", Icon: Dumbbell },
+  { key: "Photo", label: "사진", href: "/photo", Icon: Camera },
+  { key: "Invest", label: "투자", href: "/invest", Icon: ChartNoAxesCombined },
+  { key: "Journal", label: "저널", href: "/journal", Icon: NotebookPen },
+  { key: "Timeline", label: "캘린더", href: "/timeline", Icon: CalendarDays },
+  { key: "Tools", label: "도구", href: "/tools", Icon: Wrench },
+];
 export function SiteHeader({ active }: { active?: string }) {
-  return (
-    <header className="site-header">
-      <Link className="wordmark" href="/" aria-label="홈으로 이동">JUHWAN<span className="wordmark-dot">.</span></Link>
-      <nav aria-label="주요 메뉴">
-        {navigation.map(([label, href]) => <Link className={active === label ? "nav-active" : ""} aria-current={active === label ? "page" : undefined} href={href} key={label}>{label}</Link>)}
-      </nav>
-    </header>
-  );
+  return <nav className="workspace-nav" aria-label="주요 메뉴">{navigation.map(({ key, label, href, Icon }) => <a aria-current={active === key ? "page" : undefined} href={href} key={key}><Icon size={17} strokeWidth={1.7}/><span>{label}</span></a>)}</nav>;
 }
